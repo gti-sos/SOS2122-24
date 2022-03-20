@@ -1,8 +1,9 @@
-const cool= require("cool-ascii-faces");
+const cool = require("cool-ascii-faces");
 const express = require("express");
-
-const app= express();
-const port= process.env.PORT || 8080;
+const bodyParser = require("body-parser")
+const app = express();
+app.use(bodyParser.json());
+const port = process.env.PORT || 8080;
 
 const BASE_API_URL ="/api/v1";
 
@@ -21,8 +22,30 @@ var pneumonia= [
     }
 ];
 
+var cancerDeaths = [
+    {
+        country: "spain",
+        year: 2019,
+        deaths: 12345
+    },
+    {
+        country: "paul",
+        year:2020,
+        deaths: 56789
+    }
+];
+
 app.get(BASE_API_URL+"/pneumonia",(req,res)=>{
     res.send(JSON.stringify(pneumonia));
+});
+
+app.get(BASE_API_URL+"/cancerDeaths",(req,res)=>{
+    res.send(JSON.stringify(cancerDeaths,null,2));
+});
+
+app.post(BASE_API_URL+"/cancerDeaths",(req,res)=>{
+    cancerDeaths.push(req.body);
+    res.sendStatus(201,"CREATED")
 });
  
 app.get("/cool", (req,res)=>{
