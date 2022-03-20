@@ -38,6 +38,10 @@ var cancerDeaths = [
 app.get(BASE_API_URL+"/pneumonia",(req,res)=>{
     res.send(JSON.stringify(pneumonia));
 });
+app.post(BASE_API_URL+"/pneumonia",(req,res)=>{
+    pneumonia.push(req.body);
+    res.sendStatus(201,"CREATED")
+});
 
 app.get(BASE_API_URL+"/cancerDeaths",(req,res)=>{
     res.send(JSON.stringify(cancerDeaths,null,2));
@@ -47,6 +51,7 @@ app.post(BASE_API_URL+"/cancerDeaths",(req,res)=>{
     cancerDeaths.push(req.body);
     res.sendStatus(201,"CREATED")
 });
+
  
 app.get("/cool", (req,res)=>{
     console.log("Requested /cool route");
