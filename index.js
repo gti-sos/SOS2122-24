@@ -52,7 +52,6 @@ app.post(BASE_API_URL+"/cancerDeaths",(req,res)=>{
     res.sendStatus(201,"CREATED")
 });
 
- 
 app.get("/cool", (req,res)=>{
     console.log("Requested /cool route");
     res.send("<html><body><h1>" + cool()+ "</h1></body></html>")
