@@ -29,7 +29,7 @@ var cancerDeaths = [
         deaths: 12345
     },
     {
-        country: "paul",
+        country: "italy",
         year:2020,
         deaths: 56789
     }
