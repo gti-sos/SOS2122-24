@@ -10,49 +10,49 @@ var pneumonia_stats = [
         country: "france",
         year: 2019,
         ages_zero_fifty: 2,
-        ages_zero_fifty: 8,
+        ages_fifty_seventy: 8,
         ages_seventy: 230
     },
     {
         country: "argentina",
         year: 2019,
         ages_zero_fifty: 21,
-        ages_zero_fifty: 71,
+        ages_fifty_seventy: 71,
         ages_seventy: 835
     },
     {
         country: "brazil",
         year: 2019,
         ages_zero_fifty: 40,
-        ages_zero_fifty: 43,
+        ages_fifty_seventy: 43,
         ages_seventy: 455
     },
     {
         country: "china",
         year: 2019,
         ages_zero_fifty: 20,
-        ages_zero_fifty: 7,
+        ages_fifty_seventy: 7,
         ages_seventy: 130
     },
     {
         country: "japan",
         year: 2019,
         ages_zero_fifty: 4,
-        ages_zero_fifty: 17,
+        ages_fifty_seventy: 17,
         ages_seventy: 409
     },
     {
         country: "england",
         year: 2019,
         ages_zero_fifty: 5,
-        ages_zero_fifty: 16,
+        ages_fifty_seventy: 16,
         ages_seventy: 440
     },
     {
         country: "india",
         year: 2019,
         ages_zero_fifty: 117,
-        ages_zero_fifty: 43,
+        ages_fifty_seventy: 43,
         ages_seventy: 328
 
     },
@@ -60,14 +60,14 @@ var pneumonia_stats = [
         country: "eeuu",
         year: 2019,
         ages_zero_fifty: 5,
-        ages_zero_fifty: 16,
+        ages_fifty_seventy: 16,
         ages_seventy: 184
     },
     {
         country: "spain",
         year: 2019,
         ages_zero_fifty: 3,
-        ages_zero_fifty: 8,
+        ages_fifty_seventy: 8,
         ages_seventy: 198
     }
 ]
@@ -82,49 +82,49 @@ module.exports.register = (app) =>{
                     country: "france",
                     year: 2019,
                     ages_zero_fifty: 2,
-                    ages_zero_fifty: 8,
+                    ages_fifty_seventy: 8,
                     ages_seventy: 230
                 },
                 {
                     country: "argentina",
                     year: 2019,
                     ages_zero_fifty: 21,
-                    ages_zero_fifty: 71,
+                    ages_fifty_seventy: 71,
                     ages_seventy: 835
                 },
                 {
                     country: "brazil",
                     year: 2019,
                     ages_zero_fifty: 40,
-                    ages_zero_fifty: 43,
+                    ages_fifty_seventy: 43,
                     ages_seventy: 455
                 },
                 {
                     country: "china",
                     year: 2019,
                     ages_zero_fifty: 20,
-                    ages_zero_fifty: 7,
+                    ages_fifty_seventy: 7,
                     ages_seventy: 130
                 },
                 {
                     country: "japan",
                     year: 2019,
                     ages_zero_fifty: 4,
-                    ages_zero_fifty: 17,
+                    ages_fifty_seventy: 17,
                     ages_seventy: 409
                 },
                 {
                     country: "england",
                     year: 2019,
                     ages_zero_fifty: 5,
-                    ages_zero_fifty: 16,
+                    ages_fifty_seventy: 16,
                     ages_seventy: 440
                 },
                 {
                     country: "india",
                     year: 2019,
                     ages_zero_fifty: 117,
-                    ages_zero_fifty: 43,
+                    ages_fifty_seventy: 43,
                     ages_seventy: 328
             
                 },
@@ -132,14 +132,14 @@ module.exports.register = (app) =>{
                     country: "eeuu",
                     year: 2019,
                     ages_zero_fifty: 5,
-                    ages_zero_fifty: 16,
+                    ages_fifty_seventy: 16,
                     ages_seventy: 184
                 },
                 {
                     country: "spain",
                     year: 2019,
                     ages_zero_fifty: 3,
-                    ages_zero_fifty: 8,
+                    ages_fifty_seventy: 8,
                     ages_seventy: 198
                 }
             ]
@@ -152,7 +152,7 @@ module.exports.register = (app) =>{
     
     app.get(BASE_API_URL_PNEUMONIA_STATS+"/docs",(req,res)=>
     {
-        res.redirect("https://documenter.getpostman.com/view/20091922/UVsQrixc")
+        res.redirect("")
     })
     
     
@@ -319,8 +319,8 @@ module.exports.register = (app) =>{
     function comprobar_body(req){
         return (req.body.country == null |
                  req.body.year == null | 
-                 req.body.death_rate == null | 
-                 req.body.life_expectancy_birth == null | 
-                 req.body.birth_rates == null);
+                 req.body.ages_zero_fifty == null | 
+                 req.body.ages_fifty_seventy == null | 
+                 req.body.ages_seventy == null);
     }
 }
