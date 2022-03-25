@@ -333,8 +333,10 @@ module.exports.register = (app) =>{
     function comprobar_body(req){
         return (req.body.country == null |
                  req.body.year == null | 
-                 req.body.death_rate == null | 
-                 req.body.life_expectancy_birth == null | 
-                 req.body.birth_rates == null);
+                 req.body.ages_zero_fifty == null | 
+                 req.body.ages_fifty_seventy == null | 
+                 req.body.ages_seventy == null);
     }
+    
+    
 }
