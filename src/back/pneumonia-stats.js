@@ -152,7 +152,7 @@ module.exports.register = (app) =>{
     
     app.get(BASE_API_URL_PNEUMONIA_STATS+"/docs",(req,res)=>
     {
-        res.redirect("")
+        res.redirect("https://documenter.getpostman.com/view/19574612/UVyn1JRG")
     })
     
     
