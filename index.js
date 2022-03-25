@@ -5,52 +5,18 @@ const app = express();
 app.use(bodyParser.json());
 const port = process.env.PORT || 8080;
 
-const BASE_API_URL ="/api/v1";
+const cancerdeaths_stats_API = require("./src/back/cancerdeaths-stats.js");
+const pneumonia_stats_API = require("./src/back/pneumonia-stats.js");
+
+
+const BASE_API_URL = "/api/v1/";
+
+
+
+cancerdeaths_stats_API.register(app);
+pneumonia_stats_API.register(app);
 
 app.use("/", express.static(`public`))
-
-var pneumonia= [ 
-    {
-        country: "france",
-        year: 2019,
-        death:240
-    },
-    {
-        country: "argentina",
-        year: 2019,
-        death:927
-    }
-];
-
-var cancerDeaths = [
-    {
-        country: "spain",
-        year: 2019,
-        deaths: 12345
-    },
-    {
-        country: "italy",
-        year:2020,
-        deaths: 56789
-    }
-];
-
-app.get(BASE_API_URL+"/pneumonia-stats",(req,res)=>{
-    res.send(JSON.stringify(pneumonia));
-});
-app.post(BASE_API_URL+"/pneumonia-stats",(req,res)=>{
-    pneumonia.push(req.body);
-    res.sendStatus(201,"CREATED")
-});
-
-app.get(BASE_API_URL+"/cancerDeaths-stats",(req,res)=>{
-    res.send(JSON.stringify(cancerDeaths,null,2));
-});
-
-app.post(BASE_API_URL+"/cancerDeaths-stats",(req,res)=>{
-    cancerDeaths.push(req.body);
-    res.sendStatus(201,"CREATED")
-});
 
 app.get("/cool", (req,res)=>{
     console.log("Requested /cool route");
