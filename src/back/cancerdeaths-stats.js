@@ -8,63 +8,63 @@ const BASE_API_URL_CANCERDEATHS_STATS = "/api/v1/cancerdeaths-stats";
 var cancerdeaths_stats = [
     {				
         country: "france",	
-        years: 2019,
+        year: 2019,
         ages_zero_fifty: 34,
         ages_fifty_seventy: 359,
         ages_seventy: 1374
     },
     {				
         country: "argentina",	
-        years: 2019,
+        year: 2019,
         ages_zero_fifty: 41,
         ages_fifty_seventy: 396,
         ages_seventy: 1341
     },
     {				
         country: "brazil",	
-        years: 2019,
+        year: 2019,
         ages_zero_fifty: 40,
         ages_fifty_seventy: 273,
         ages_seventy: 926
     },
     {				
         country: "china",	
-        years: 2019,
+        year: 2019,
         ages_zero_fifty: 46,
         ages_fifty_seventy: 319,
         ages_seventy: 1176
     },
     {				
         country: "japan",	
-        years: 2019,
+        year: 2019,
         ages_zero_fifty: 26,
         ages_fifty_seventy: 260,
         ages_seventy: 1254
     },
     {				
         country: "england",	
-        years: 2019,
+        year: 2019,
         ages_zero_fifty: 28,
         ages_fifty_seventy: 303,
         ages_seventy: 1553
     },
     {				
         country: "india",	
-        years: 2019,
+        year: 2019,
         ages_zero_fifty: 30,
         ages_fifty_seventy: 213,
         ages_seventy: 581
     },
     {								
         country: "eeuu",	
-        years: 2019,
+        year: 2019,
         ages_zero_fifty: 29,
         ages_fifty_seventy: 335,
         ages_seventy: 1294
     },
     {												
         country: "spain",	
-        years: 2019,
+        year: 2019,
         ages_zero_fifty: 33,
         ages_fifty_seventy: 300,
         ages_seventy: 1269
@@ -74,7 +74,7 @@ var cancerdeaths_stats = [
 module.exports.register = (app) =>{
    
     
-    // Cargar datos iniciales
+    
     
     app.get(BASE_API_URL_CANCERDEATHS_STATS+"/loadInitialData",(req, res)=>{
     
@@ -82,63 +82,63 @@ module.exports.register = (app) =>{
             cancerdeaths_stats = [
                 {				
                     country: "france",	
-                    years: 2019,
+                    year: 2019,
                     ages_zero_fifty: 34,
                     ages_fifty_seventy: 359,
                     ages_seventy: 1374
                 },
                 {				
                     country: "argentina",	
-                    years: 2019,
+                    year: 2019,
                     ages_zero_fifty: 41,
                     ages_fifty_seventy: 396,
                     ages_seventy: 1341
                 },
                 {				
                     country: "brazil",	
-                    years: 2019,
+                    year: 2019,
                     ages_zero_fifty: 40,
                     ages_fifty_seventy: 273,
                     ages_seventy: 926
                 },
                 {				
                     country: "china",	
-                    years: 2019,
+                    year: 2019,
                     ages_zero_fifty: 46,
                     ages_fifty_seventy: 319,
                     ages_seventy: 1176
                 },
                 {				
                     country: "japan",	
-                    years: 2019,
+                    year: 2019,
                     ages_zero_fifty: 26,
                     ages_fifty_seventy: 260,
                     ages_seventy: 1254
                 },
                 {				
                     country: "england",	
-                    years: 2019,
+                    year: 2019,
                     ages_zero_fifty: 28,
                     ages_fifty_seventy: 303,
                     ages_seventy: 1553
                 },
                 {				
                     country: "india",	
-                    years: 2019,
+                    year: 2019,
                     ages_zero_fifty: 30,
                     ages_fifty_seventy: 213,
                     ages_seventy: 581
                 },
                 {								
                     country: "eeuu",	
-                    years: 2019,
+                    year: 2019,
                     ages_zero_fifty: 29,
                     ages_fifty_seventy: 335,
                     ages_seventy: 1294
                 },
                 {												
                     country: "spain",	
-                    years: 2019,
+                    year: 2019,
                     ages_zero_fifty: 33,
                     ages_fifty_seventy: 300,
                     ages_seventy: 1269
@@ -149,16 +149,14 @@ module.exports.register = (app) =>{
         
     })
     
-    // Documentos
+    
     
     app.get(BASE_API_URL_CANCERDEATHS_STATS+"/docs",(req,res)=>
     {
         res.redirect("")
     })
     
-    // GETs
     
-    // GET por año
     
     app.get(BASE_API_URL_CANCERDEATHS_STATS,(req, res)=>{
     
@@ -166,7 +164,7 @@ module.exports.register = (app) =>{
         var from = req.query.from;
         var to = req.query.to;
         if(year != null){
-            // Apartado para búsqueda por año
+            
             var filteredList = cancerdeaths_stats.filter((reg)=>
             {
                 return (reg.year == year);
@@ -177,7 +175,7 @@ module.exports.register = (app) =>{
                 res.send(JSON.stringify(filteredList,null,2));
             }
         }else if(from != null && to != null){
-            // Apartado para from y to
+            
             var filteredList = cancerdeaths_stats.filter((reg)=>
             {
                 return (reg.year >= from && reg.year <=to);
@@ -195,7 +193,7 @@ module.exports.register = (app) =>{
         }
     })
     
-    // GET por país
+    
     
     app.get(BASE_API_URL_CANCERDEATHS_STATS+"/:country",(req, res)=>{
     
@@ -209,7 +207,7 @@ module.exports.register = (app) =>{
         var to = req.query.to;
     
         if(from != null && to != null){
-            // Apartado para from y to
+            
             filteredList = filteredList.filter((reg)=>
             {
                 return (reg.year >= from && reg.year <=to);
@@ -230,7 +228,7 @@ module.exports.register = (app) =>{
     
     })
     
-    // GET por año y pais
+    
     
     app.get(BASE_API_URL_CANCERDEATHS_STATS+"/:country/:year",(req, res)=>{
     
@@ -247,9 +245,7 @@ module.exports.register = (app) =>{
         }
     })
     
-    // POSTs
     
-    // POST para lista de recursos
     
     app.post(BASE_API_URL_CANCERDEATHS_STATS,(req, res)=>{
         
@@ -271,23 +267,21 @@ module.exports.register = (app) =>{
     
     })
     
-    // POST para recurso concreto
+    
     
     app.post(BASE_API_URL_CANCERDEATHS_STATS+"/:country",(req, res)=>{
         res.sendStatus(405,"METHOD NOT ALLOWED");
     })
     
     
-    // PUTs
     
-    // PUT de una lista de recursos
     
     app.put(BASE_API_URL_CANCERDEATHS_STATS,(req, res)=>{
         
         res.sendStatus(405,"METHOD NOT ALLOWED");
     })
     
-    // PUT de un recurso especifico
+    
     
     app.put(BASE_API_URL_CANCERDEATHS_STATS+"/:country/:year",(req, res)=>{
         
@@ -314,30 +308,27 @@ module.exports.register = (app) =>{
     
     })
     
-    // DELETEs
     
-    // DELETE de una lista de recursos
     
     app.delete(BASE_API_URL_CANCERDEATHS_STATS,(req, res)=>{
         cancerdeaths_stats = [];
         res.sendStatus(200,"DELETED");
     })
     
-    // DELETE de un recurso especifico
+    
     
     app.delete(BASE_API_URL_CANCERDEATHS_STATS+"/:country/:year",(req, res)=>{
         var country = req.params.country;
         var year = req.params.year;
         cancerdeaths_stats = cancerdeaths_stats.filter((reg)=>{
      
-            // Con la primera parte comprobamos si es un país distinto al seleccionado
-            // y con la segunda en caso de ser el mismo país se comprueba si es el mismo año
+            
             return (reg.country!=country || (reg.country == country && reg.year != year))
         })
         res.sendStatus(200,"DELETED");
     })
     
-    // Método auxiliares
+    
     
     function comprobar_body(req){
         return (req.body.country == null |
