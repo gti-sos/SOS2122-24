@@ -35,19 +35,19 @@ var cancerDeaths = [
     }
 ];
 
-app.get(BASE_API_URL+"/pneumonia",(req,res)=>{
+app.get(BASE_API_URL+"/pneumonia-stats",(req,res)=>{
     res.send(JSON.stringify(pneumonia));
 });
-app.post(BASE_API_URL+"/pneumonia",(req,res)=>{
+app.post(BASE_API_URL+"/pneumonia-stats",(req,res)=>{
     pneumonia.push(req.body);
     res.sendStatus(201,"CREATED")
 });
 
-app.get(BASE_API_URL+"/cancerDeaths",(req,res)=>{
+app.get(BASE_API_URL+"/cancerDeaths-stats",(req,res)=>{
     res.send(JSON.stringify(cancerDeaths,null,2));
 });
 
-app.post(BASE_API_URL+"/cancerDeaths",(req,res)=>{
+app.post(BASE_API_URL+"/cancerDeaths-stats",(req,res)=>{
     cancerDeaths.push(req.body);
     res.sendStatus(201,"CREATED")
 });
