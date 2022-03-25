@@ -5,7 +5,7 @@ const BASE_API_URL_PNEUMONIA_STATS = "/api/v1/pneumonia-stats";
 
 
 
-var PNEUMONIA_STATS = [
+var pneumonia_stats = [
     {
         country: "france",
         year: 2019,
