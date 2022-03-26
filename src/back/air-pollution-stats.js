@@ -167,7 +167,7 @@ module.exports.register = (app) =>{
                 return (reg.year == year);
             });
             if (filteredList==0){
-                res.sendStatus(404, "NO EXISTE");
+                res.sendStatus(404, "NO EXISTE ");
             }else{
                 res.send(JSON.stringify(filteredList,null,2));
             }
