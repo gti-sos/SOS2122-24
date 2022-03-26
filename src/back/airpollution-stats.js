@@ -246,7 +246,7 @@ module.exports.register = (app) =>{
         if(comprobar_body(req)){
             res.sendStatus(400,"BAD REQUEST - Parametros incorrectos");
         }else{
-            var filteredList = pneumonia_stats.filter((reg)=>
+            var filteredList = air_pollution_stats.filter((reg)=>
             {
                 return(req.body.country == reg.country && req.body.year == reg.year)
             })
@@ -254,7 +254,7 @@ module.exports.register = (app) =>{
             if(filteredList.length != 0){
                 res.sendStatus(409,"CONFLICT");
             }else{
-                pneumonia_stats.push(req.body);
+                air_pollution_stats.push(req.body);
                 res.sendStatus(201,"CREATED");
             }
         }
@@ -282,7 +282,7 @@ module.exports.register = (app) =>{
             var country = req.params.country;
             var year = req.params.year;
             var body = req.body;  
-            var index = pneumonia_stats.findIndex((reg) =>{
+            var index = air_pollution_stats.findIndex((reg) =>{
                 return (reg.country == country && reg.year == year)
             })
             if(index == null){
@@ -290,8 +290,8 @@ module.exports.register = (app) =>{
             }else if(country != body.country || year != body.year){
                 res.sendStatus(400,"BAD REQUEST");
             }else{
-                var  update_pneumonia_stats = {...body};
-                pneumonia_stats[index] = update_pneumonia_stats;
+                var  update_air_pollution_statss = {...body};
+                air_pollution_stats[index] = update_air_pollution_stats;
             
                 res.sendStatus(200,"UPDATED");
             }
@@ -301,7 +301,7 @@ module.exports.register = (app) =>{
     
     
     app.delete(BASE_API_URL_AIR_POLLUTION_STATS,(req, res)=>{
-        pneumonia_stats = [];
+        air_pollution_stats = [];
         res.sendStatus(200,"DELETED");
     })
     
@@ -310,7 +310,7 @@ module.exports.register = (app) =>{
     app.delete(BASE_API_URL_AIR_POLLUTION_STATS+"/:country/:year",(req, res)=>{
         var country = req.params.country;
         var year = req.params.year;
-        pneumonia_stats = pneumonia_stats.filter((reg)=>{
+        air_pollution_stats = air_pollution_stats.filter((reg)=>{
             return (reg.country!=country || (reg.country == country && reg.year != year))
         })
         res.sendStatus(200,"DELETED");
