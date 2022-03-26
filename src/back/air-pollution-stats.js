@@ -290,7 +290,7 @@ module.exports.register = (app) =>{
             }else if(country != body.country || year != body.year){
                 res.sendStatus(400,"BAD REQUEST");
             }else{
-                var  update_air_pollution_statss = {...body};
+                var  update_air_pollution_stats = {...body};
                 air_pollution_stats[index] = update_air_pollution_stats;
             
                 res.sendStatus(200,"UPDATED");
