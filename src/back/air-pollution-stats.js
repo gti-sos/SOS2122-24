@@ -152,7 +152,7 @@ module.exports.register = (app) =>{
     
     app.get(BASE_API_URL_AIR_POLLUTION_STATS+"/docs",(req,res)=>
     {
-        res.redirect("https://documenter.getpostman.com/view/19574612/UVyn1JRG")
+        res.redirect("https://documenter.getpostman.com/view/20219339/UVyn2Jne")
     })
     
     
