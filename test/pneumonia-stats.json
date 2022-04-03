@@ -190,8 +190,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 201\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -370,7 +370,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"country\": \"france\",\r\n\"year\": 2019,\r\n\"ages_zero_fifty\": 2,\r\n\"ages_fifty_seventy\": 8,\r\n\"ages_seventy\": 230\r\n}",
+					"raw": "{\r\n\"country\": \"france\",\r\n\"year\": 2017,\r\n\"ages_zero_fifty\": 2,\r\n\"ages_fifty_seventy\": 8,\r\n\"ages_seventy\": 230\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -441,8 +441,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -495,7 +495,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}/api/v1/pneumonia-stats/france",
+					"raw": "{{HOST}}/api/v1/pneumonia-stats/italy",
 					"host": [
 						"{{HOST}}"
 					],
@@ -503,7 +503,7 @@
 						"api",
 						"v1",
 						"pneumonia-stats",
-						"france"
+						"italy"
 					]
 				}
 			},
