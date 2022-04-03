@@ -8,14 +8,16 @@ const port = process.env.PORT || 8080;
 const cancerdeaths_stats_API = require("./src/back/cancerdeaths-stats.js");
 const pneumonia_stats_API = require("./src/back/pneumonia-stats.js");
 const airpollution_stats_API = require("./src/back/air-pollution-stats.js");
-
-
-const BASE_API_URL = "/api/v1/";
+const Datastore = require('nedb');
 
 
 
-cancerdeaths_stats_API.register(app);
-pneumonia_stats_API.register(app);
+db_cancerdeaths_stats = new Datastore();
+db_pneumonia_stats = new Datastore();
+
+
+cancerdeaths_stats_API.register(app,db_cancerdeaths_stats);
+pneumonia_stats_API.register(app,db_pneumonia_stats);
 airpollution_stats_API.register(app);
 
 app.use("/", express.static(`public`))
