@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test-cd": "npx newman run ./test/cancerdeaths-stats.json -e ./test/env/LOCAL.json"
+    "test": "npx newman run ./test/cancerdeaths-stats.json -e ./test/env/LOCAL.json"
   },
   "repository": {
     "type": "git",
