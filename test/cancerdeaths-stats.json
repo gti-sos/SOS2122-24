@@ -487,7 +487,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"country\": \"spain\",\r\n\"year\": 2019,\r\n\"ages_zero_fifty\": 10,\r\n\"ages_fifty_seventy\": 98,\r\n\"ages_seventy\": 15\r\n}",
+					"raw": "{\r\n\"country\": \"spain\",\r\n\"year\": 2013,\r\n\"ages_zero_fifty\": 100,\r\n\"ages_fifty_seventy\": 98,\r\n\"ages_seventy\": 15\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -495,7 +495,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}/api/v1/cancerdeaths-stats/spain/2019",
+					"raw": "{{HOST}}/api/v1/cancerdeaths-stats/spain/2013",
 					"host": [
 						"{{HOST}}"
 					],
@@ -504,7 +504,7 @@
 						"v1",
 						"cancerdeaths-stats",
 						"spain",
-						"2019"
+						"2013"
 					]
 				}
 			},
