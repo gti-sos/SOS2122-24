@@ -7,7 +7,8 @@
     "start": "node index.js",
     "test-cancerdeaths-stats": "npx newman run ./test/cancerdeaths-stats.json -e ./test/env/LOCAL.json",
     "test-pneumonia-stats":"npx newman run ./test/pneumonia-stats.json -e ./test/env/HEROKU.json",
-    "test":"npm run test-cancerdeaths-stats && npm run test-pneumonia-stats"
+    "test-air-pollution-stats": "npx newman run ./test/air-pollution-stats.json -e ./test/env/LOCAL1.json",
+    "test":"npm run test-cancerdeaths-stats && npm run test-pneumonia-stats && npm run test-air-pollution-stats"
   },
   "repository": {
     "type": "git",

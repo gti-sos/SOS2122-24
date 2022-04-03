@@ -14,11 +14,12 @@ const Datastore = require('nedb');
 
 db_cancerdeaths_stats = new Datastore();
 db_pneumonia_stats = new Datastore();
+db_airpollution_stats = new Datastore();
 
 
 cancerdeaths_stats_API.register(app,db_cancerdeaths_stats);
 pneumonia_stats_API.register(app,db_pneumonia_stats);
-airpollution_stats_API.register(app);
+airpollution_stats_API.register(app,db_airpollution_stats);
 
 app.use("/", express.static(`public`))
 
