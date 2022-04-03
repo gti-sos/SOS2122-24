@@ -204,7 +204,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}/api/v1/cancerdeaths-stats/france",
+					"raw": "{{HOST}}/api/v1/cancerdeaths-stats/francee",
 					"host": [
 						"{{HOST}}"
 					],
@@ -212,7 +212,7 @@
 						"api",
 						"v1",
 						"cancerdeaths-stats",
-						"france"
+						"francee"
 					]
 				}
 			},
