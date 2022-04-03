@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "npx newman run ./test/cancerdeaths-stats.json -e ./test/env/LOCAL.json",
-    "test-pneumonia-stats":"npx newman run ./test/pneumonia-stats.json -e ./test/env/HEROKU.json"
+    "test-cancerdeaths-stats": "npx newman run ./test/cancerdeaths-stats.json -e ./test/env/LOCAL.json",
+    "test-pneumonia-stats":"npx newman run ./test/pneumonia-stats.json -e ./test/env/HEROKU.json",
+    "test":"npm run test-cancerdeaths-stats && npm run test-pneumonia-stats"
   },
   "repository": {
     "type": "git",
