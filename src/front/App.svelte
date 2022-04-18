@@ -4,13 +4,17 @@
 
 	import Pneumonia from './pneumonia-stats/Pneumonia.svelte';
 	import EditPneumonia from "./pneumonia-stats/EditPneumonia.svelte";
+	import Cancerdeaths from './cancerdeaths-stats/Cancerdeaths.svelte';
+	import EditCancerdeaths from "./cancerdeaths-stats/EditCancerdeaths.svelte";
 	//export let name;
 
 	const routes={
 		"/" : Home,
 
 		"/pneumonia-stats" : Pneumonia,
-		"/pneumonia/:country" : EditPneumonia
+		"/pneumonia/:country" : EditPneumonia,
+		"/cancerdeaths-stats" : Cancerdeaths,
+		"/cancerdeaths/:country" : EditCancerdeaths
 
 
 	};
