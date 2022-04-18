@@ -38,9 +38,9 @@
 				window.alert("Entrada introducida con éxito");
 			}); 
     }
-	async function BorrarPneumonia(countryDelete){
+	async function BorrarPneumonia(country,year){
         console.log("Deleting Pneumonia....");
-        const res = await fetch("/api/v1/pneumonia-stats/"+countryDelete,
+        const res = await fetch("/api/v1/pneumonia-stats/" + country +"/" + year,
 			{
 				method: "DELETE"
 			}).then(function (res){
