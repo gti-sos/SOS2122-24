@@ -38,7 +38,7 @@
 				window.alert("Entrada introducida con éxito");
 			}); 
     }
-	async function BorrarAirpollution(country,year){
+	async function BorrarAirpollutions(country,year){
         console.log("Deleting Airpollution....");
         const res = await fetch("/api/v1/air-pollution-stats/" + country +"/" + year,
 			{
@@ -48,7 +48,7 @@
 				window.alert("Entrada eliminada con éxito");
 			});
     }
-	async function BorrarAirpollution(){
+	async function BorrarAirpollutionss(){
         console.log("Deleting air pollution....");
         const res = await fetch("/api/v1/air-pollution-stats/",
 			{
@@ -113,7 +113,7 @@ loading
 				}}>
 					Editar
 				</Button>
-				<td><Button outline color="danger" on:click={BorrarAirpollution}>
+				<td><Button outline color="danger" on:click={BorrarAirpollutions}>
 					Borrar
 				</Button>
 				</td>
@@ -123,7 +123,7 @@ loading
 				<td><Button outline color="success" on:click={LoadAirpollution}>
 					Cargar datos
 				</Button></td>
-				<td><Button outline color="danger" on:click={BorrarAirpollution}>
+				<td><Button outline color="danger" on:click={BorrarAirpollutionss}>
 					Borrar todo
 				</Button></td>
 			</tr>
