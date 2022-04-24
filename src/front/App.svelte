@@ -6,6 +6,7 @@
 	import EditPneumonia from "./pneumonia-stats/EditPneumonia.svelte";
 	import Cancerdeaths from './cancerdeaths-stats/Cancerdeaths.svelte';
 	import EditCancerdeaths from "./cancerdeaths-stats/EditCancerdeaths.svelte";
+	import Airpollution from './air-pollution-stats/Airpollution.svelte';
 	//export let name;
 
 	const routes={
@@ -14,7 +15,8 @@
 		"/pneumonia-stats" : Pneumonia,
 		"/pneumonia/:country" : EditPneumonia,
 		"/cancerdeaths-stats" : Cancerdeaths,
-		"/cancerdeaths/:country" : EditCancerdeaths
+		"/cancerdeaths/:country" : EditCancerdeaths,
+		"/air-pollution-stats" : Airpollution,
 
 
 	};
