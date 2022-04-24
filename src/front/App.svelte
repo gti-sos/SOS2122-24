@@ -16,7 +16,7 @@
 		"/pneumonia/:country" : EditPneumonia,
 		"/cancerdeaths-stats" : Cancerdeaths,
 		"/cancerdeaths/:country" : EditCancerdeaths,
-		"/air-pollution-stats" : Airpollution,
+		"/air-pollution-stats" : Airpollution
 
 
 	};
