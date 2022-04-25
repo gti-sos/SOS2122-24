@@ -2,6 +2,7 @@
     import {onMount} from 'svelte';
 	import Table from 'sveltestrap/src/Table.svelte';
 	import Button from 'sveltestrap/src/Button.svelte'; 
+	import { Alert } from "sveltestrap";
 
 	let cancerdeaths=[];
 	let offset=0;
@@ -10,6 +11,11 @@
 
 	let from=null;
 	let to=null;
+
+	let visibleError = false;
+	let visibleMsg = false;
+	let errorMsg = "";
+	let msg = "";
 
     let newcancerdeaths={
         country: "",
@@ -40,7 +46,10 @@
 			console.log("Received cancerdeaths: " + cancerdeaths.length);
 		}
 		else{
-				window.alert("No hay ningún dato entre estos límites")
+			visibleError = true;
+					visibleMsg = false;
+					msg = "No hay ningún dato entre "+from+" y "+to;
+				//window.alert("No hay ningún dato entre estos límites")
 			}
 	}
 	async function getPgAnt() {
@@ -87,8 +96,10 @@
     }
 	
 	async function insertcancerdeaths(){
-		if (newcancerdeaths.country == "" || newcancerdeaths.country == null || newcancerdeaths.year == "" || newcancerdeaths.year == null) {
-             alert("Debes insertar el nombre del país y el año.");
+		if (newcancerdeaths.country == "" || newcancerdeaths.country == null || newcancerdeaths.year == "" || newcancerdeaths.year == null|| newcancerdeaths.ages_zero_fifty == "" || newcancerdeaths.ages_zero_fifty == null || newcancerdeaths.ages_fifty_seventy == "" || newcancerdeaths.ages_fifty_seventy == null || newcancerdeaths.ages_seventy == "" || newcancerdeaths.ages_seventy == null) {
+			visibleError = true;
+					visibleMsg = false;
+					msg = "Debe de rellenar todos los campos";
          }
 		 else{
         console.log("Inserting cancerdeaths...."+JSON.stringify(newcancerdeaths));
@@ -102,9 +113,15 @@
 			}).then(function (res){
 				if(res.status == 201){
 				getcancerdeaths();
-				window.alert("Entrada introducida con éxito");}
+				visibleError = false;
+					visibleMsg = true;
+					msg = "Entrada introducida con éxito";}
+				
 				else if(res.status == 409){
-                     window.alert("Ya existe ese recurso en la base de datos");
+                     
+					 visibleError = true;
+					visibleMsg = false;
+					msg = "Ya existe ese recurso en la base de datos";
                      console.log("ERROR There is already a data with that country and year in the database");
                      
                  }
@@ -118,9 +135,15 @@
             getcancerdeaths();      
             if (res.status==200) {
                 console.log("Deleted " + name); 
-				window.alert(name + " elimida con éxito");           
+				//window.alert(name + " elimida con éxito"); 
+				visibleError = false;
+					visibleMsg = true;
+					msg = name + " elimida con éxito";				          
             }else  {
-                window.alert(name + " no se ha podida eliminar");
+                //window.alert(name + " no se ha podida eliminar");
+				visibleError = true;
+					visibleMsg = flase;
+					msg = name + " no se ha podida eliminar";
                 console.log("DATA NOT FOUND");            
             
             }      
@@ -133,7 +156,10 @@
 				method: "DELETE"
 			}).then(function (res){
 				getcancerdeaths();
-				window.alert("Entradas elimidas con éxito");
+				//window.alert("Entradas elimidas con éxito");
+				visibleError = false;
+					visibleMsg = true;
+					msg = "Entradas elimidas con éxito";
 			});
     }
 
@@ -144,13 +170,26 @@
 				method: "GET"
 			}).then(function (res){
 				getcancerdeaths();
-				window.alert("Entradas cargadas con éxito");
+				//window.alert("Entradas cargadas con éxito");
+				visibleError = false;
+					visibleMsg = true;
+					msg = "Entradas cargadas con éxito";
 			});
     }
 </script>
 
 <main>
     <h1>Tasa de muertes por cancer</h1>
+	<Alert color="danger" isOpen={visibleError} toggle={() => (visibleError = false)}>
+		{#if msg}
+			<p>ERROR: {msg}</p>
+		   {/if}
+	</Alert>
+	<Alert color="success" isOpen={visibleMsg} toggle={() => (visibleMsg = false)}>
+		{#if msg}
+			<p>Correcto: {msg}</p>
+		{/if}
+	</Alert>
 	<Button on:click="{getPgAnt}">
 		Página Anterior
 	</Button>
@@ -175,7 +214,10 @@ loading
             <td><input type="number" min="0" bind:value="{to}"></td>
             <td align="center"><Button outline color="dark" on:click="{()=>{
                 if (from == null || to == null) {
-                    window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')
+                    //window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')
+					visibleError = true;
+					visibleMsg = false;
+					msg = "Los campos fecha inicio y fecha fin no pueden estar vacíos";
                 }else{
                     getcancerdeaths();
                 }

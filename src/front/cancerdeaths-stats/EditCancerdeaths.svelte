@@ -5,7 +5,12 @@
     import { onMount } from 'svelte';
     import {Button} from 'sveltestrap';
     import Table from 'sveltestrap/src/Table.svelte';
-    
+    import { Alert } from "sveltestrap";
+
+    let visibleError = false;
+	let visibleMsg = false;
+	let errorMsg = "";
+	let msg = "";
 
     let cancerdeaths={};
 
@@ -52,7 +57,10 @@
 				}
                 
 			}); 
-            window.alert("Se ha editado correctamente");
+            visibleError = false;
+					visibleMsg = true;
+					msg = updatedCountry+" se ha editado correctamente";
+            //window.alert("Se ha editado correctamente");
     }
     async function Fallos(code,entrada){
         
@@ -84,6 +92,16 @@
 
 <main>
     <h1> Editar "{params.country}" </h1>
+    <Alert color="danger" isOpen={visibleError} toggle={() => (visibleError = false)}>
+		{#if msg}
+			<p>ERROR: {msg}</p>
+		   {/if}
+	</Alert>
+	<Alert color="success" isOpen={visibleMsg} toggle={() => (visibleMsg = false)}>
+		{#if msg}
+			<p>Correcto: {msg}</p>
+		{/if}
+	</Alert>
     {#await cancerdeaths}
     loading
         {:then cancerdeaths}

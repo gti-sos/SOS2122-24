@@ -25,7 +25,7 @@
 
 	async function getPneumonia(){
 		console.log("fetching pneumonia ....");
-		const res= await fetch("/api/v1/pneumonia-stats/" +params.country+"/"+params.year);
+		const res= await fetch("/api/v1/pneumonia-stats/" +params.country +"/"+params.year);
 		if(res.ok){
 			const data= await res.json();
 			pneumonia=data;
@@ -42,7 +42,7 @@
 
     async function EditPneumonia(){
         console.log("Updating Pneumonia...."+updatedCountry);
-        const res = await fetch("/api/v1/pneumonia-stats/"+params.country+"/"+params.year,
+        const res = await fetch("/api/v1/pneumonia-stats/"+params.country +"/"+params.year,
 			{
 				method: "PUT",
 				body: JSON.stringify({
