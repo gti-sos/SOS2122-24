@@ -4,6 +4,12 @@
 	import Button from 'sveltestrap/src/Button.svelte'; 
 
 	let pneumonia=[];
+	let from=null;
+	let to=null;
+	let offset=0;
+	let limit=10;
+
+	let numEntries;
 
     let newPneumonia={
         country: "",
@@ -17,14 +23,71 @@
 
 	async function getPneumonia(){
 		console.log("fetching pneumonia ....");
-		const res= await fetch("/api/v1/pneumonia-stats");
+		let cadena=`/api/v1/pneumonia-stats?offset=+${offset}+&limit=+${limit}`;
+		if(from !=null){
+			cadena=cadena + `&from=${from}&` 
+		}
+		if(to !=null){
+			cadena=cadena + `to=${to}`
+		}
+
+		const res= await fetch(cadena);
+		if(res.ok){
+			const data= await res.json();
+			pneumonia=data;
+			numEntries=pneumonia.length;
+			console.log("Received pneumonia: " + pneumonia.length);
+		}else{
+			window.alert("No hay entradas para esas fechas");
+		}
+	}
+	async function getPgAnt() {
+		if(offset>=10){
+
+			offset=offset-10;
+		}
+		//limit=limit+10;
+        console.log("fetching pneumonia ....");
+		let cadena = `/api/v1/pneumonia-stats?offset=+${offset}+&limit=+${limit}`;
+		if(from !=null){
+            cadena=cadena + `&from=${from}&` 
+        }
+        if(to !=null){
+            cadena=cadena + `to=${to}`
+        }
+		const res= await fetch(cadena);
 		if(res.ok){
 			const data= await res.json();
 			pneumonia=data;
 			console.log("Received pneumonia: " + pneumonia.length);
 		}
-	}
+    }
+	async function getPgSig() {
+		if(pneumonia.length>=10){
+
+			offset=offset+10;
+		}
+		//limit=limit+10;
+        console.log("fetching pneumonia ....");
+		let cadena = `/api/v1/pneumonia-stats?offset=+${offset}+&limit=+${limit}`;
+		if(from !=null){
+            cadena=cadena + `&from=${from}&` 
+        }
+        if(to !=null){
+            cadena=cadena + `to=${to}`
+        }
+		const res= await fetch(cadena);
+		if(res.ok){
+			const data= await res.json();
+			pneumonia=data;
+			console.log("Received pneumonia: " + pneumonia.length);
+		}
+    }
+	
 	async function insertPneumonia(){
+		if (newPneumonia.country == "" || newPneumonia.country == null || newPneumonia.year == "" || newPneumonia.year == null) {
+             alert("Debes insertar el nombre del país y el año.");
+         }else{
         console.log("Inserting Pneumonia...."+JSON.stringify(newPneumonia));
         const res = await fetch("/api/v1/pneumonia-stats",
 			{
@@ -34,21 +97,34 @@
 					"Content-Type": "application/json"
 				}
 			}).then(function (res){
+				if(res.status == 201){
 				getPneumonia();
-				window.alert("Entrada introducida con éxito");
-			}); 
-    }
-	async function BorrarPneumonia(country,year){
+				window.alert("Entrada introducida con éxito");}
+				else if(res.status == 409){
+                     window.alert("Ya existe ese recurso en la base de datos");
+                     console.log("ERROR There is already a data with that country and year in the database");
+                     
+                 }
+			});  
+    }}
+	async function BorrarPneumonia(name,year){
         console.log("Deleting Pneumonia....");
-        const res = await fetch("/api/v1/pneumonia-stats/" + country +"/" + year,
+        const res = await fetch("/api/v1/pneumonia-stats/" + name +"/" + year,
 			{
 				method: "DELETE"
 			}).then(function (res){
 				getPneumonia();
-				window.alert("Entrada eliminada con éxito");
-			});
+				if (res.status==200) {
+                console.log("Deleted " + name); 
+				window.alert(name + " elimida con éxito");           
+            }else  {
+                window.alert(name + " no se ha podida eliminar");
+                console.log("DATA NOT FOUND");            
+            
+            }      
+        });
     }
-	async function BorrarPneumonias(){
+	async function BorrarPneumoniasAll(){
         console.log("Deleting pneumonias....");
         const res = await fetch("/api/v1/pneumonia-stats/",
 			{
@@ -73,9 +149,52 @@
 
 <main>
     <h1>Tasa de muertes por neumonia</h1>
+	<Button on:click="{getPgAnt}">
+		Página Anterior
+	</Button>
+	<Button on:click="{getPgSig}">
+		Página Siguiente
+	</Button>
     {#await pneumonia}
 loading
 	{:then pneumonia}
+
+	<Table bordered>
+		<thead>
+			<tr>
+				<th>Fecha de inicio</th>
+				<th>Fecha fin</th>
+			</tr>
+		</thead>
+		<tbody>
+
+		
+		<tr>
+			<td><input type="number" min="0" bind:value="{from}"></td>
+			<td><input type="number" min="0" bind:value="{to}"></td>
+			<td align="center"><Button outline color="dark" on:click="{()=>{
+				if (from == null || to == null) {
+					window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')
+				}else{
+					getPneumonia();
+				}
+			}}">
+				Buscar
+				</Button>
+			</td>
+			<td align="center"><Button outline color="info" on:click="{()=>{
+				from = null;
+				to = null;
+				getPneumonia();
+				
+			}}">
+				Limpiar Búsqueda
+				</Button>
+			</td>
+		</tr>
+		</tbody>
+	</Table>
+
 
 	<Table bordered>
 		<thead>
@@ -90,7 +209,7 @@ loading
 		<tbody>
 			<tr>
 				<td><input bind:value="{newPneumonia.country}"></td>
-				<td><input bind:value="{newPneumonia.year}"></td>
+				<td><input type="number" bind:value="{newPneumonia.year}"></td>
 				<td><input bind:value="{newPneumonia.ages_zero_fifty}"></td>
 				<td><input bind:value="{newPneumonia.ages_fifty_seventy}"></td>
 				<td><input bind:value="{newPneumonia.ages_seventy}"></td>
@@ -99,21 +218,31 @@ loading
 					Añadir
 					</Button>
 				</td>
+				<td align="center"><Button outline color="primary" on:click="{()=>{
+					newPneumonia.country = null;
+					newPneumonia.year = null;
+					newPneumonia.ages_zero_fifty = null;
+					newPneumonia.ages_fifty_seventy = null;
+					newPneumonia.ages_seventy = null;
+				}}">
+					Limpiar
+					</Button>
+				</td>
 			</tr>
-			{#each pneumonia as pneumonia}
+			{#each pneumonia as pneumoniaa}
 			<tr>
-				<td>{pneumonia.country}</td>
-				<td>{pneumonia.year}</td>
-                <td>{pneumonia.ages_zero_fifty}</td>
-                <td>{pneumonia.ages_fifty_seventy}</td>
-                <td>{pneumonia.ages_seventy}</td>
+				<td>{pneumoniaa.country}</td>
+				<td>{pneumoniaa.year}</td>
+                <td>{pneumoniaa.ages_zero_fifty}</td>
+                <td>{pneumoniaa.ages_fifty_seventy}</td>
+                <td>{pneumoniaa.ages_seventy}</td>
 
 				<td><Button outline color="warning" on:click={function (){
-					window.location.href = `/#/Pneumonia/${pneumonia.country}`
+					window.location.href = `/#/Pneumonia/${pneumoniaa.country}/${pneumoniaa.year}`
 				}}>
 					Editar
 				</Button>
-				<td><Button outline color="danger" on:click={BorrarPneumonia}>
+				<td><Button outline color="danger" on:click={BorrarPneumonia(pneumoniaa.country,pneumoniaa.year)}>
 					Borrar
 				</Button>
 				</td>
@@ -123,7 +252,7 @@ loading
 				<td><Button outline color="success" on:click={LoadPneumonia}>
 					Cargar datos
 				</Button></td>
-				<td><Button outline color="danger" on:click={BorrarPneumonias}>
+				<td><Button outline color="danger" on:click={BorrarPneumoniasAll}>
 					Borrar todo
 				</Button></td>
 			</tr>
