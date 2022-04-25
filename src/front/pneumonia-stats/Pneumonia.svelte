@@ -2,12 +2,18 @@
     import {onMount} from 'svelte';
 	import Table from 'sveltestrap/src/Table.svelte';
 	import Button from 'sveltestrap/src/Button.svelte'; 
+	import Alert from 'sveltestrap/src/Alert.svelte';
 
 	let pneumonia=[];
 	let from=null;
 	let to=null;
 	let offset=0;
 	let limit=10;
+	let checkMSG = "";
+    let visible = false;
+    let color = "danger";
+	
+
 
 	let numEntries;
 
@@ -38,7 +44,10 @@
 			numEntries=pneumonia.length;
 			console.log("Received pneumonia: " + pneumonia.length);
 		}else{
-			window.alert("No hay entradas para esas fechas");
+			color="danger";
+			checkMSG="No hay entradas para esas fechas";
+			visible="true";
+			//window.alert("No hay entradas para esas fechas");
 		}
 	}
 	async function getPgAnt() {
@@ -85,8 +94,10 @@
     }
 	
 	async function insertPneumonia(){
-		if (newPneumonia.country == "" || newPneumonia.country == null || newPneumonia.year == "" || newPneumonia.year == null) {
-             alert("Debes insertar el nombre del país y el año.");
+		if (newPneumonia.country == "" || newPneumonia.country == null || newPneumonia.year == "" || newPneumonia.year == null || newPneumonia.ages_zero_fifty == "" || newPneumonia.ages_zero_fifty == null || newPneumonia.ages_fifty_seventy == "" || newPneumonia.ages_fifty_seventy == null || newPneumonia.ages_seventy == "" || newPneumonia.ages_seventy == null) {
+			color="danger";
+			checkMSG="Debes insertar el nombre del país y el año.";
+			visible="true";
          }else{
         console.log("Inserting Pneumonia...."+JSON.stringify(newPneumonia));
         const res = await fetch("/api/v1/pneumonia-stats",
@@ -98,10 +109,18 @@
 				}
 			}).then(function (res){
 				if(res.status == 201){
+					color="success";
+					checkMSG="Entrada introducida con éxito";
+					visible="true";
 				getPneumonia();
-				window.alert("Entrada introducida con éxito");}
+				//window.alert("Entrada introducida con éxito");
+				}
 				else if(res.status == 409){
-                     window.alert("Ya existe ese recurso en la base de datos");
+					color="danger";
+					checkMSG="Ya existe ese recurso en la base de datos";
+					visible="true";
+					
+                     //window.alert("Ya existe ese recurso en la base de datos");
                      console.log("ERROR There is already a data with that country and year in the database");
                      
                  }
@@ -115,10 +134,16 @@
 			}).then(function (res){
 				getPneumonia();
 				if (res.status==200) {
+					color="success";
+					checkMSG=name + " entrada borrada correctamente";
+					visible="true";
                 console.log("Deleted " + name); 
-				window.alert(name + " elimida con éxito");           
+				//window.alert(name + " elimida con éxito");           
             }else  {
-                window.alert(name + " no se ha podida eliminar");
+				color="danger";
+				checkMSG=name + "no se ha podido borrar la entrada";
+				visible="true";
+                //window.alert(name + " no se ha podida eliminar");
                 console.log("DATA NOT FOUND");            
             
             }      
@@ -130,8 +155,11 @@
 			{
 				method: "DELETE"
 			}).then(function (res){
+				color="success";
+				checkMSG="Entradas elimidas con éxito";
+				visible="true";
 				getPneumonia();
-				window.alert("Entradas elimidas con éxito");
+				//window.alert("Entradas elimidas con éxito");
 			});
     }
 
@@ -141,8 +169,11 @@
 			{
 				method: "GET"
 			}).then(function (res){
+				color="success";
+				checkMSG="Entradas cargadas con éxito";
+				visible="true";
 				getPneumonia();
-				window.alert("Entradas cargadas con éxito");
+				//window.alert("Entradas cargadas con éxito");
 			});
     }
 </script>
@@ -159,6 +190,12 @@
 loading
 	{:then pneumonia}
 
+	<Alert color={color} isOpen={visible} toggle={() => (visible = false)}>
+		{#if checkMSG}
+			{checkMSG}
+		{/if}
+	</Alert>	
+
 	<Table bordered>
 		<thead>
 			<tr>
@@ -174,7 +211,10 @@ loading
 			<td><input type="number" min="0" bind:value="{to}"></td>
 			<td align="center"><Button outline color="dark" on:click="{()=>{
 				if (from == null || to == null) {
-					window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')
+					color="success";
+					checkMSG="Los campos fecha inicio y fecha fin no pueden estar vacíos";
+					visible="true";
+					//window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')
 				}else{
 					getPneumonia();
 				}
@@ -245,6 +285,7 @@ loading
 				<td><Button outline color="danger" on:click={BorrarPneumonia(pneumoniaa.country,pneumoniaa.year)}>
 					Borrar
 				</Button>
+				
 				</td>
 			</tr>
 			{/each}

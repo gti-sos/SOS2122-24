@@ -5,10 +5,14 @@
     import { onMount } from 'svelte';
     import {Button} from 'sveltestrap';
     import Table from 'sveltestrap/src/Table.svelte';
-
+    import Alert from 'sveltestrap/src/Alert.svelte';
     
     
     let pneumonia={};
+
+    let checkMSG = "";
+    let visible = false;
+    let color = "danger";
 
     
     let updatedCountry;
@@ -52,7 +56,10 @@
 					"Content-Type": "application/json"
 				}
 			});
-            window.alert("Se ha editado correctamente"); 
+            color="success";
+			checkMSG="Se ha editado correctamente";
+			visible="true";
+            //window.alert("Se ha editado correctamente"); 
     }
     async function Fallos(code,entrada){
         
@@ -84,6 +91,11 @@
 
 <main>
     <h1> Editar "{params.country}" </h1>
+    <Alert color={color} isOpen={visible} toggle={() => (visible = false)}>
+		{#if checkMSG}
+			{checkMSG}
+		{/if}
+	</Alert>
     {#await pneumonia}
     loading
         {:then pneumonia}
