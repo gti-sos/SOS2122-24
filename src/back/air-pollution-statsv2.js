@@ -1,7 +1,7 @@
 //Alicia Campos Castello
 const bodyParser = require("body-parser");
 
-const BASE_API_URL_AIR_POLLUTION_STATS = "/api/v1/air-pollution-stats";
+const BASE_API_URL_AIR_POLLUTION_STATS = "/api/v2/air-pollution-stats";
 
 
 
@@ -97,7 +97,7 @@ module.exports.register = (app, db) =>{
     
     app.get(BASE_API_URL_AIR_POLLUTION_STATS+"/docs",(req,res)=>
     {
-        res.redirect("https://documenter.getpostman.com/view/20219339/UVyn2Jne")
+        res.redirect("https://documenter.getpostman.com/view/20219339/UyrBjbYS")
     })
     
     
@@ -375,7 +375,7 @@ module.exports.register = (app, db) =>{
                 res.sendStatus(404, "NOT FOUND");
                 return;
             }
-            db.remove({ country: country, year:parseInt(year)}, {}, (err, numRemoved) => {
+            db.remove({ country: country, year: year }, {}, (err, numRemoved) => {
                 if (err) {
                     res.sendStatus(500, "INTERNAL SERVER ERROR");
                     return;

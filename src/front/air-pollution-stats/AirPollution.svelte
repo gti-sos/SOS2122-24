@@ -4,6 +4,12 @@
 	import Button from 'sveltestrap/src/Button.svelte'; 
 
 	let airpollution=[];
+	let from=null;
+	let to=null;
+	let offset=0;
+	let limit=10;
+
+	let numEntries;
 
     let newAirpollution={
         country: "",
@@ -17,14 +23,71 @@
 
 	async function getAirpollution(){
 		console.log("fetching airpollution ....");
-		const res= await fetch("/api/v1/air-pollution-stats");
+		let cadena=`/api/v1/air-pollution-stats?offset=+${offset}+&limit=+${limit}`;
+		if(from !=null){
+			cadena=cadena + `&from=${from}&` 
+		}
+		if(to !=null){
+			cadena=cadena + `to=${to}`
+		}
+
+		const res= await fetch(cadena);
 		if(res.ok){
 			const data= await res.json();
 			airpollution=data;
-			console.log("Received air pollution: " + airpollution.length);
+			numEntries=airpollution.length;
+			console.log("Received airpollution: " + airpollution.length);
+		}else{
+			window.alert("No hay entradas para esas fechas");
 		}
 	}
+	async function getPgAnt() {
+		if(offset>=10){
+
+			offset=offset-10;
+		}
+		//limit=limit+10;
+        console.log("fetching airpollution ....");
+		let cadena = `/api/v1/air-pollution-stats?offset=+${offset}+&limit=+${limit}`;
+		if(from !=null){
+            cadena=cadena + `&from=${from}&` 
+        }
+        if(to !=null){
+            cadena=cadena + `to=${to}`
+        }
+		const res= await fetch(cadena);
+		if(res.ok){
+			const data= await res.json();
+			airpollution=data;
+			console.log("Received airpollution: " + airpollution.length);
+		}
+    }
+	async function getPgSig() {
+		if(airpollution.length>=10){
+
+			offset=offset+10;
+		}
+		//limit=limit+10;
+        console.log("fetching airpollution ....");
+		let cadena = `/api/v1/air-pollution-stats?offset=+${offset}+&limit=+${limit}`;
+		if(from !=null){
+            cadena=cadena + `&from=${from}&` 
+        }
+        if(to !=null){
+            cadena=cadena + `to=${to}`
+        }
+		const res= await fetch(cadena);
+		if(res.ok){
+			const data= await res.json();
+			airpollution=data;
+			console.log("Received airpollution: " + airpollution.length);
+		}
+    }
+	
 	async function insertAirpollution(){
+		if (newAirpollution.country == "" || newAirpollution.country == null || newAirpollution.year == "" || newAirpollution.year == null) {
+             alert("Debes insertar el nombre del país y el año.");
+         }else{
         console.log("Inserting Airpollution...."+JSON.stringify(newAirpollution));
         const res = await fetch("/api/v1/air-pollution-stats",
 			{
@@ -34,22 +97,34 @@
 					"Content-Type": "application/json"
 				}
 			}).then(function (res){
+				if(res.status == 201){
 				getAirpollution();
-				window.alert("Entrada introducida con éxito");
-			}); 
+				window.alert("Entrada introducida con éxito");}
+				else if(res.status == 409){
+                     window.alert("Ya existe ese recurso en la base de datos");
+                     console.log("ERROR There is already a data with that country and year in the database");
+                     
+                 }
+			});  
+    }}
+	async function BorrarAirpollution(name, year) {
+        const res = await fetch("/api/v1/air-pollution-stats/"+name+"/"+year, {
+            method: "DELETE"
+        }).then(function(res) {
+           
+            getAirpollution();      
+            if (res.status==200) {
+                console.log("Deleted " + name); 
+				window.alert(name + " elimida con éxito");           
+            }else  {
+                window.alert(name + " no se ha podida eliminar");
+                console.log("DATA NOT FOUND");            
+            
+            }      
+        });
     }
-	async function BorrarAirpollutions(country,year){
-        console.log("Deleting Airpollution....");
-        const res = await fetch("/api/v1/air-pollution-stats/" + country +"/" + year,
-			{
-				method: "DELETE"
-			}).then(function (res){
-				getAirpollution();
-				window.alert("Entrada eliminada con éxito");
-			});
-    }
-	async function BorrarAirpollutionss(){
-        console.log("Deleting air pollution....");
+	async function BorrarAirpollutionAll(){
+        console.log("Deleting airpollution....");
         const res = await fetch("/api/v1/air-pollution-stats/",
 			{
 				method: "DELETE"
@@ -60,7 +135,7 @@
     }
 
 	async function LoadAirpollution(){
-        console.log("Loading air pollution....");
+        console.log("Loading airpollution....");
         const res = await fetch("/api/v1/air-pollution-stats/loadInitialData",
 			{
 				method: "GET"
@@ -73,9 +148,52 @@
 
 <main>
     <h1>Tasa de muertes por contaminacion de aire</h1>
+	<Button on:click="{getPgAnt}">
+		Página Anterior
+	</Button>
+	<Button on:click="{getPgSig}">
+		Página Siguiente
+	</Button>
     {#await airpollution}
 loading
 	{:then airpollution}
+
+	<Table bordered>
+		<thead>
+			<tr>
+				<th>Fecha de inicio</th>
+				<th>Fecha fin</th>
+			</tr>
+		</thead>
+		<tbody>
+
+		
+		<tr>
+			<td><input type="number" min="0" bind:value="{from}"></td>
+			<td><input type="number" min="0" bind:value="{to}"></td>
+			<td align="center"><Button outline color="dark" on:click="{()=>{
+				if (from == null || to == null) {
+					window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')
+				}else{
+					getAirpollution();
+				}
+			}}">
+				Buscar
+				</Button>
+			</td>
+			<td align="center"><Button outline color="info" on:click="{()=>{
+				from = null;
+				to = null;
+				getAirpollution();
+				
+			}}">
+				Limpiar Búsqueda
+				</Button>
+			</td>
+		</tr>
+		</tbody>
+	</Table>
+
 
 	<Table bordered>
 		<thead>
@@ -90,7 +208,7 @@ loading
 		<tbody>
 			<tr>
 				<td><input bind:value="{newAirpollution.country}"></td>
-				<td><input bind:value="{newAirpollution.year}"></td>
+				<td><input type="number" bind:value="{newAirpollution.year}"></td>
 				<td><input bind:value="{newAirpollution.ages_zero_fifty}"></td>
 				<td><input bind:value="{newAirpollution.ages_fifty_seventy}"></td>
 				<td><input bind:value="{newAirpollution.ages_seventy}"></td>
@@ -99,21 +217,31 @@ loading
 					Añadir
 					</Button>
 				</td>
+				<td align="center"><Button outline color="primary" on:click="{()=>{
+					newAirpollution.country = null;
+					newAirpollution.year = null;
+					newAirpollution.ages_zero_fifty = null;
+					newAirpollution.ages_fifty_seventy = null;
+					newAirpollution.ages_seventy = null;
+				}}">
+					Limpiar
+					</Button>
+				</td>
 			</tr>
-			{#each airpollution as airpollution}
+			{#each airpollution as airpollutionn}
 			<tr>
-				<td>{airpollution.country}</td>
-				<td>{airpollution.year}</td>
-                <td>{airpollution.ages_zero_fifty}</td>
-                <td>{airpollution.ages_fifty_seventy}</td>
-                <td>{airpollution.ages_seventy}</td>
+				<td>{airpollutionn.country}</td>
+				<td>{airpollutionn.year}</td>
+                <td>{airpollutionn.ages_zero_fifty}</td>
+                <td>{airpollutionn.ages_fifty_seventy}</td>
+                <td>{airpollutionn.ages_seventy}</td>
 
 				<td><Button outline color="warning" on:click={function (){
-					window.location.href = `/#/Airpollution/${airpollution.country}`
+					window.location.href = `/#/air-pollution/${airpollutionn.country}/${airpollutionn.year}`
 				}}>
 					Editar
 				</Button>
-				<td><Button outline color="danger" on:click={BorrarAirpollutions}>
+				<td><Button outline color="danger" on:click={BorrarAirpollution(airpollutionn.country,airpollutionn.year)}>
 					Borrar
 				</Button>
 				</td>
@@ -123,7 +251,7 @@ loading
 				<td><Button outline color="success" on:click={LoadAirpollution}>
 					Cargar datos
 				</Button></td>
-				<td><Button outline color="danger" on:click={BorrarAirpollutionss}>
+				<td><Button outline color="danger" on:click={BorrarAirpollutionAll}>
 					Borrar todo
 				</Button></td>
 			</tr>

@@ -18,7 +18,7 @@
 		"/cancerdeaths-stats" : Cancerdeaths,
 		"/cancerdeaths/:country/:year" : EditCancerdeaths,
 		"/air-pollution-stats" : Airpollution,
-		"/airpollution/:country" : EditAirpollution
+		"/air-pollution/:country/:year" : EditAirpollution
 
 
 	};
