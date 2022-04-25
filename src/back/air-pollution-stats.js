@@ -375,7 +375,7 @@ module.exports.register = (app, db) =>{
                 res.sendStatus(404, "NOT FOUND");
                 return;
             }
-            db.remove({ country: country, year: year }, {}, (err, numRemoved) => {
+            db.remove({ country: country, year:parseInt(year)}, {}, (err, numRemoved) => {
                 if (err) {
                     res.sendStatus(500, "INTERNAL SERVER ERROR");
                     return;

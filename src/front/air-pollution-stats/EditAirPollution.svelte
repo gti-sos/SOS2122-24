@@ -18,8 +18,8 @@
     onMount(getAirpollution);
 
 	async function getAirpollution(){
-		console.log("fetching airpollution ....");
-		const res= await fetch("/api/v1/air-pollution-stats/" +params.country);
+		console.log("fetching Airpollution ....");
+		const res= await fetch("/api/v1/air-pollution-stats/" +params.country+"/"+params.year);
 		if(res.ok){
 			const data= await res.json();
 			airpollution=data;
@@ -36,7 +36,7 @@
 
     async function EditAirpollution(){
         console.log("Updating Airpollution...."+updatedCountry);
-        const res = await fetch("/api/v1/air-pollution-stats/"+params.country,
+        const res = await fetch("/api/v1/air-pollution-stats/"+params.country+"/"+params.year,
 			{
 				method: "PUT",
 				body: JSON.stringify({
@@ -50,6 +50,7 @@
 					"Content-Type": "application/json"
 				}
 			}); 
+            window.alert("Se ha editado correctamente");
     }
     async function Fallos(code,entrada){
         
@@ -97,8 +98,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{updatedCountry}</td>
-                    <td><input bind:value="{updatedYear}"></td>
+                    <td>{params.country}</td>
+                    <td>{params.year}</td>
                     <td><input bind:value="{updatedAgesZeroFifty}"></td>
                     <td><input bind:value="{updatedAgesFiftySeventy}"></td>
                     <td><input bind:value="{updatedAgesSeventy}"></td>
@@ -112,5 +113,5 @@
         </Table>
     
     {/await}
-    <Button outline color="secondary" on:click= "{pop}">Back</Button> 
+    <Button outline color="secondary" on:click= "{pop}">Volver</Button> 
 </main>
