@@ -5,9 +5,8 @@
     import { onMount } from 'svelte';
     import {Button} from 'sveltestrap';
     import Table from 'sveltestrap/src/Table.svelte';
-    
 
-    let cancerdeaths={};
+    let airpollution={};
 
     
     let updatedCountry;
@@ -16,28 +15,28 @@
     let updatedAgesFiftySeventy;
     let updatedAgesSeventy;
 
-    onMount(getCancerdeaths);
+    onMount(getAirpollution);
 
-	async function getCancerdeaths(){
-		console.log("fetching cancerdeaths ....");
-		const res= await fetch("/api/v1/cancerdeaths-stats/" +params.country+"/"+params.year);
+	async function getAirpollution(){
+		console.log("fetching airpollution ....");
+		const res= await fetch("/api/v1/air-pollution-stats/" +params.country);
 		if(res.ok){
 			const data= await res.json();
-			cancerdeaths=data;
-			updatedCountry=cancerdeaths.country;
-            updatedYear=cancerdeaths.year;
-            updatedAgesZeroFifty=cancerdeaths.ages_zero_fifty;
-            updatedAgesFiftySeventy=cancerdeaths.ages_fifty_seventy;
-            updatedAgesSeventy=cancerdeaths.ages_seventy;
+			airpollution=data;
+			updatedCountry=airpollution.country;
+            updatedYear=airpollution.year;
+            updatedAgesZeroFifty=airpollution.ages_zero_fifty;
+            updatedAgesFiftySeventy=airpollution.ages_fifty_seventy;
+            updatedAgesSeventy=airpollution.ages_seventy;
 		}else{
             Fallos(res.status,params.country);
             pop();
         }
 	}
 
-    async function EditCancerdeaths(){
-        console.log("Updating Cancerdeaths...."+updatedCountry);
-        const res = await fetch("/api/v1/cancerdeaths-stats/"+params.country+"/"+params.year,
+    async function EditAirpollution(){
+        console.log("Updating Airpollution...."+updatedCountry);
+        const res = await fetch("/api/v1/air-pollution-stats/"+params.country,
 			{
 				method: "PUT",
 				body: JSON.stringify({
@@ -50,9 +49,7 @@
 				headers: {
 					"Content-Type": "application/json"
 				}
-                
 			}); 
-            window.alert("Se ha editado correctamente");
     }
     async function Fallos(code,entrada){
         
@@ -84,9 +81,9 @@
 
 <main>
     <h1> Editar "{params.country}" </h1>
-    {#await cancerdeaths}
+    {#await airpollution}
     loading
-        {:then cancerdeaths}
+        {:then airpollution}
     
         <Table bordered>
             <thead>
@@ -100,13 +97,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{params.country}</td>
-                    <td>{params.year}</td>
+                    <td>{updatedCountry}</td>
+                    <td><input bind:value="{updatedYear}"></td>
                     <td><input bind:value="{updatedAgesZeroFifty}"></td>
                     <td><input bind:value="{updatedAgesFiftySeventy}"></td>
                     <td><input bind:value="{updatedAgesSeventy}"></td>
     
-                    <td><Button outline color="primary" on:click="{EditCancerdeaths}">
+                    <td><Button outline color="primary" on:click="{EditAirpollution}">
                         Editar
                         </Button>
                     </td>
@@ -115,5 +112,5 @@
         </Table>
     
     {/await}
-    <Button outline color="secondary" on:click= "{pop}">Volver</Button> 
+    <Button outline color="secondary" on:click= "{pop}">Back</Button> 
 </main>
