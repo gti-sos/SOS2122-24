@@ -6,8 +6,8 @@
 	import EditPneumonia from "./pneumonia-stats/EditPneumonia.svelte";
 	import Cancerdeaths from './cancerdeaths-stats/Cancerdeaths.svelte';
 	import EditCancerdeaths from "./cancerdeaths-stats/EditCancerdeaths.svelte";
-	//import Airpollution from './air-pollution-stats/Airpollution.svelte';
-	//import EditAirpollution from "./air-pollution-stats/EditAirpollution.svelte";
+	import Airpollution from './air-pollution-stats/Airpollution.svelte';
+	import EditAirpollution from "./air-pollution-stats/EditAirpollution.svelte";
 	//export let name;
 
 	const routes={
