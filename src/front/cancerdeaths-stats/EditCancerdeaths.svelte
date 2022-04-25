@@ -5,6 +5,7 @@
     import { onMount } from 'svelte';
     import {Button} from 'sveltestrap';
     import Table from 'sveltestrap/src/Table.svelte';
+    
 
     let cancerdeaths={};
 
@@ -19,7 +20,7 @@
 
 	async function getCancerdeaths(){
 		console.log("fetching cancerdeaths ....");
-		const res= await fetch("/api/v1/cancerdeaths-stats/" +params.country);
+		const res= await fetch("/api/v1/cancerdeaths-stats/" +params.country+"/"+params.year);
 		if(res.ok){
 			const data= await res.json();
 			cancerdeaths=data;
@@ -36,7 +37,7 @@
 
     async function EditCancerdeaths(){
         console.log("Updating Cancerdeaths...."+updatedCountry);
-        const res = await fetch("/api/v1/cancerdeaths-stats/"+params.country,
+        const res = await fetch("/api/v1/cancerdeaths-stats/"+params.country+"/"+params.year,
 			{
 				method: "PUT",
 				body: JSON.stringify({
@@ -49,7 +50,9 @@
 				headers: {
 					"Content-Type": "application/json"
 				}
+                
 			}); 
+            window.alert("Se ha editado correctamente");
     }
     async function Fallos(code,entrada){
         
@@ -97,8 +100,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{updatedCountry}</td>
-                    <td><input bind:value="{updatedYear}"></td>
+                    <td>{params.country}</td>
+                    <td>{params.year}</td>
                     <td><input bind:value="{updatedAgesZeroFifty}"></td>
                     <td><input bind:value="{updatedAgesFiftySeventy}"></td>
                     <td><input bind:value="{updatedAgesSeventy}"></td>
@@ -112,5 +115,5 @@
         </Table>
     
     {/await}
-    <Button outline color="secondary" on:click= "{pop}">Back</Button> 
+    <Button outline color="secondary" on:click= "{pop}">Volver</Button> 
 </main>

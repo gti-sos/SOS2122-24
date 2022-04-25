@@ -1,6 +1,6 @@
 <script>
 	import Router from 'svelte-spa-router';
-	import Home from './Home.svelte';
+	import Info from './Home.svelte';
 
 	import Pneumonia from './pneumonia-stats/Pneumonia.svelte';
 	import EditPneumonia from "./pneumonia-stats/EditPneumonia.svelte";
@@ -9,12 +9,12 @@
 	//export let name;
 
 	const routes={
-		"/" : Home,
+		"/info" : Info,
 
 		"/pneumonia-stats" : Pneumonia,
 		"/pneumonia/:country" : EditPneumonia,
 		"/cancerdeaths-stats" : Cancerdeaths,
-		"/cancerdeaths/:country" : EditCancerdeaths
+		"/cancerdeaths/:country/:year" : EditCancerdeaths
 
 
 	};

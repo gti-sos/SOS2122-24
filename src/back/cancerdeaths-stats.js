@@ -173,7 +173,7 @@ module.exports.register = (app, db) => {
 
         for (var i = 0; i < Object.keys(req.query).length; i++) {
             var element = Object.keys(req.query)[i];
-            if (element != "from" && element != "to") {
+            if(element != "year" && element != "from" && element != "to" && element != "limit" && element != "offset" && element != "fields"){
                 res.sendStatus(400, "BAD REQUEST");
                 return;
             }
@@ -357,21 +357,21 @@ module.exports.register = (app, db) => {
 
 
     app.delete(BASE_API_URL_CANCERDEATHS_STATS+"/:country/:year",(req, res)=>{
-        var country = req.params.country;
-        var year = req.params.year;
+        var countryR = req.params.country;
+        var yearR = req.params.year;
 
-        db.find({country: country, year: parseInt(year)}, {}, (err, filteredList)=>{
+        db.find({country: countryR, year: parseInt(yearR)}, {}, (err, filteredList)=>{
             if (err){
-                res.sendStatus(500,"INTERNAL SERVER ERROR");
+                res.sendStatus(500,"ERROR EN CLIENTE");
                 return;
             }
             if(filteredList==0){
                 res.sendStatus(404,"NOT FOUND");
                 return;
             }
-            db.remove({country: country, year: year}, {}, (err, numRemoved)=>{
+            db.remove({country: countryR, year: parseInt(yearR)}, {}, (err, numRemoved)=>{
                 if (err){
-                    res.sendStatus(500,"INTERNAL SERVER ERROR");
+                    res.sendStatus(500,"ERROR EN CLIENTE");
                     return;
                 }
             
