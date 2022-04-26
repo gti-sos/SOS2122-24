@@ -2,6 +2,7 @@
     import {onMount} from 'svelte';
 	import Table from 'sveltestrap/src/Table.svelte';
 	import Button from 'sveltestrap/src/Button.svelte'; 
+	import Alert from 'sveltestrap/src/Alert.svelte';
 
 	let airpollution=[];
 	let from=null;
@@ -10,6 +11,9 @@
 	let limit=10;
 
 	let numEntries;
+	let checkMSG = "";
+    let visible = false;
+    let color = "danger";
 
     let newAirpollution={
         country: "",
@@ -38,7 +42,9 @@
 			numEntries=airpollution.length;
 			console.log("Received airpollution: " + airpollution.length);
 		}else{
-			window.alert("No hay entradas para esas fechas");
+			color="danger";
+			checkMSG="No hay entradas para esas fechas";
+			visible="true";
 		}
 	}
 	async function getPgAnt() {
@@ -86,7 +92,9 @@
 	
 	async function insertAirpollution(){
 		if (newAirpollution.country == "" || newAirpollution.country == null || newAirpollution.year == "" || newAirpollution.year == null) {
-             alert("Debes insertar el nombre del país y el año.");
+			color="danger";
+			checkMSG="Debes insertar el nombre del país y el año.";
+			visible="true";
          }else{
         console.log("Inserting Airpollution...."+JSON.stringify(newAirpollution));
         const res = await fetch("/api/v1/air-pollution-stats",
@@ -98,10 +106,16 @@
 				}
 			}).then(function (res){
 				if(res.status == 201){
+					color="success";
+					checkMSG="Entrada introducida con éxito";
+					visible="true";
 				getAirpollution();
-				window.alert("Entrada introducida con éxito");}
+				
+				}
 				else if(res.status == 409){
-                     window.alert("Ya existe ese recurso en la base de datos");
+					color="danger";
+					checkMSG="Ya existe ese recurso en la base de datos";
+					visible="true";
                      console.log("ERROR There is already a data with that country and year in the database");
                      
                  }
@@ -114,10 +128,14 @@
            
             getAirpollution();      
             if (res.status==200) {
-                console.log("Deleted " + name); 
-				window.alert(name + " elimida con éxito");           
+                color="success";
+				checkMSG=name + " entrada borrada correctamente";
+				visible="true";
+				console.log("Deleted " + name);            
             }else  {
-                window.alert(name + " no se ha podida eliminar");
+                color="danger";
+				checkMSG=name + "no se ha podido borrar la entrada";
+				visible="true";
                 console.log("DATA NOT FOUND");            
             
             }      
@@ -129,8 +147,11 @@
 			{
 				method: "DELETE"
 			}).then(function (res){
+				
+				color="success";
+				checkMSG="Entradas elimidas con éxito";
+				visible="true";
 				getAirpollution();
-				window.alert("Entradas elimidas con éxito");
 			});
     }
 
@@ -141,7 +162,9 @@
 				method: "GET"
 			}).then(function (res){
 				getAirpollution();
-				window.alert("Entradas cargadas con éxito");
+				color="success";
+				checkMSG="Entradas cargadas con éxito";
+				visible="true";
 			});
     }
 </script>
@@ -157,6 +180,11 @@
     {#await airpollution}
 loading
 	{:then airpollution}
+	<Alert color={color} isOpen={visible} toggle={() => (visible = false)}>
+		{#if checkMSG}
+			{checkMSG}
+		{/if}
+	</Alert>
 
 	<Table bordered>
 		<thead>
@@ -173,7 +201,9 @@ loading
 			<td><input type="number" min="0" bind:value="{to}"></td>
 			<td align="center"><Button outline color="dark" on:click="{()=>{
 				if (from == null || to == null) {
-					window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')
+					color="success";
+					checkMSG="Los campos fecha inicio y fecha fin no pueden estar vacíos";
+					visible="true";
 				}else{
 					getAirpollution();
 				}
