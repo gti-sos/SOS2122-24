@@ -1,6 +1,7 @@
 <script>
 
 import { onMount } from 'svelte';
+import {Navbar, Nav, NavItem, NavLink, NavbarBrand, Dropdown, DropdownToggle, DropdownMenu, DropdownItem,Button} from 'sveltestrap';
 
 let apiData = {};
 
@@ -108,6 +109,47 @@ onMount(getPEStats);
 </svelte:head>
 
 <main>
+    <Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
+		<NavbarBrand href="#/info">INICIO</NavbarBrand>
+		<Nav navbar>
+			<Dropdown >
+				<DropdownToggle nav caret> API </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./api/v1/cancerdeaths-stats">Cancerdeaths-Stats</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./api/v1/air-pollution-stats">Airpollution-Stats</DropdownItem>
+				</DropdownMenu>
+            </Dropdown>
+              
+            <Dropdown>
+				<DropdownToggle nav caret> FRONT-END </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
+				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
+				  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				</DropdownMenu>
+			  </Dropdown>
+			  
+			  <Dropdown >
+				<DropdownToggle nav caret> Gráficas </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
+				  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
+				  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
+                  <DropdownItem href="#/graph">Grafica comun</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				</DropdownMenu>
+			  </Dropdown>
+		  <!--<NavItem>
+			<NavLink style="float:right; margin:left;" href="#/about">Acerca de</NavLink>
+		  </NavItem>-->
+		</Nav>
+	</Navbar>
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">

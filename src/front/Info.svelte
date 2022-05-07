@@ -23,7 +23,7 @@
 				<DropdownMenu end>
 				  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
 				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT-END</DropdownItem>
-				  <DropdownItem href="#/graphics/azar-games-and-bet-activities">Actividad en loteria</DropdownItem>
+				  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
 				  <DropdownItem divider/>
 				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
 				</DropdownMenu>
@@ -34,7 +34,8 @@
 			<DropdownMenu end>
 			  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
 			  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
-			  <DropdownItem href="#/graphics/azar-games-and-bet-activities">Actividad en loteria</DropdownItem>
+			  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
+            	<DropdownItem href="#/graph">Grafica comun</DropdownItem>
 			  <DropdownItem divider/>
 			  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
 			</DropdownMenu>
@@ -51,7 +52,7 @@
     <h3>Team</h3>
     <p>- <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>(fuente de datos: Cancerdeaths-stats)</p>
     <p>- <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez </a> (fuente de datos: Pneumonia-stats)</p>
-    <p>- <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castelló</a></p>
+    <p>- <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castelló</a>(fuente de datos: AirPollution-stats)</p>
     <br>
     <h3>Project description:</h3> Nuestras fuentes de información esta orientadas a analizar la relación que existe entre la tasa de muertes por neumonia, la tasa de muertes por cancer y la contaminacion del aire en interiores. 
     <br><br>
