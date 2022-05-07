@@ -3,8 +3,11 @@
 	import Table from 'sveltestrap/src/Table.svelte';
 	import Button from 'sveltestrap/src/Button.svelte'; 
 	import { Alert } from "sveltestrap";
+	import {Navbar, Nav, NavItem, NavLink, NavbarBrand, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'sveltestrap';
+	
 
 	let cancerdeaths=[];
+	let datos2 = [];
 	let offset=0;
 	let limit=10;
 	let numEntries;
@@ -41,7 +44,10 @@
 		if(res.ok){
 			
 			const data= await res.json();
-			cancerdeaths=data;
+			datos2=data;
+			cancerdeaths = datos2.sort(function (a, b){
+				return (a.year - b.year);
+			});
 			numEntries=cancerdeaths.length;
 			console.log("Received cancerdeaths: " + cancerdeaths.length);
 		}
@@ -69,7 +75,10 @@
 		const res= await fetch(cadena);
 		if(res.ok){
 			const data= await res.json();
-			cancerdeaths=data;
+			datos2=data;
+			cancerdeaths = datos2.sort(function (a, b){
+				return (a.year - b.year);
+			});
 			console.log("Received cancerdeaths: " + cancerdeaths.length);
 		}
     }
@@ -90,7 +99,10 @@
 		const res= await fetch(cadena);
 		if(res.ok){
 			const data= await res.json();
-			cancerdeaths=data;
+			datos2=data;
+			cancerdeaths = datos2.sort(function (a, b){
+				return (a.year - b.year);
+			});
 			console.log("Received cancerdeaths: " + cancerdeaths.length);
 		}
     }
@@ -113,6 +125,11 @@
 			}).then(function (res){
 				if(res.status == 201){
 				getcancerdeaths();
+				newcancerdeaths.country = null;
+					newcancerdeaths.year = null;
+					newcancerdeaths.ages_zero_fifty = null;
+					newcancerdeaths.ages_fifty_seventy = null;
+					newcancerdeaths.ages_seventy = null;
 				visibleError = false;
 					visibleMsg = true;
 					msg = "Entrada introducida con éxito";}
@@ -179,6 +196,48 @@
 </script>
 
 <main>
+	<!--barra de navegacion-->
+	<Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
+		<NavbarBrand href="#/info">INICIO</NavbarBrand>
+		<Nav navbar>
+			<Dropdown >
+				<DropdownToggle nav caret> API </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./api/v1/cancerdeaths-stats">Cancerdeaths-Stats</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./api/v1/air-pollution-stats">Airpollution-Stats</DropdownItem>
+				</DropdownMenu>
+            </Dropdown>
+              
+            <Dropdown>
+				<DropdownToggle nav caret> FRONT-END </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
+				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT-END</DropdownItem>
+				  <DropdownItem href="#/graphics/azar-games-and-bet-activities">Actividad en loteria</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				</DropdownMenu>
+			  </Dropdown>
+			  
+			  <Dropdown >
+				<DropdownToggle nav caret> Gráficas </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
+				  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
+				  <DropdownItem href="#/graphics/azar-games-and-bet-activities">Actividad en loteria</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				</DropdownMenu>
+			  </Dropdown>
+		  <!--<NavItem>
+			<NavLink style="float:right; margin:left;" href="#/about">Acerca de</NavLink>
+		  </NavItem>-->
+		</Nav>
+	</Navbar>
+	<!---->
     <h1>Tasa de muertes por cancer</h1>
 	<Alert color="danger" isOpen={visibleError} toggle={() => (visibleError = false)}>
 		{#if msg}
@@ -251,11 +310,11 @@ loading
 			<tr>
 				<td><input bind:value="{newcancerdeaths.country}"></td>
 				<td><input type="number" bind:value="{newcancerdeaths.year}"></td>
-				<td><input bind:value="{newcancerdeaths.ages_zero_fifty}"></td>
-				<td><input bind:value="{newcancerdeaths.ages_fifty_seventy}"></td>
-				<td><input bind:value="{newcancerdeaths.ages_seventy}"></td>
+				<td><input type="number" bind:value="{newcancerdeaths.ages_zero_fifty}"></td>
+				<td><input type="number" bind:value="{newcancerdeaths.ages_fifty_seventy}"></td>
+				<td><input type="number" bind:value="{newcancerdeaths.ages_seventy}"></td>
 
-				<td><Button outline color="primary" on:click="{insertcancerdeaths}">
+				<td align="center"><Button outline color="primary" on:click="{insertcancerdeaths}">
 					Añadir
 					</Button>
 					
@@ -270,6 +329,7 @@ loading
 					Limpiar
 					</Button>
 				</td>
+				
 			</tr>
 			
 			{#each cancerdeaths as cd}
@@ -280,12 +340,12 @@ loading
                 <td>{cd.ages_fifty_seventy}</td>
                 <td>{cd.ages_seventy}</td>
 
-				<td><Button outline color="warning" on:click={function (){
+				<td align="center"><Button outline color="warning" on:click={function (){
 					window.location.href = `/#/cancerdeaths/${cd.country+"/"+cd.year}`
 				}}>
 					Editar
 				</Button>
-				<td><Button outline color="danger" on:click={Borrarcancerdeaths(cd.country,cd.year)}>
+				<td align="center"><Button outline color="danger" on:click={Borrarcancerdeaths(cd.country,cd.year)}>
 					Borrar
 				</Button>
 				</td>

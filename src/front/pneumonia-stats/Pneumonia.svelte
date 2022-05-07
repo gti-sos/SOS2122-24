@@ -3,6 +3,7 @@
 	import Table from 'sveltestrap/src/Table.svelte';
 	import Button from 'sveltestrap/src/Button.svelte'; 
 	import Alert from 'sveltestrap/src/Alert.svelte';
+	import {Navbar, Nav, NavItem, NavLink, NavbarBrand, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'sveltestrap';
 
 	let pneumonia=[];
 	let from=null;
@@ -96,7 +97,7 @@
 	async function insertPneumonia(){
 		if (newPneumonia.country == "" || newPneumonia.country == null || newPneumonia.year == "" || newPneumonia.year == null || newPneumonia.ages_zero_fifty == "" || newPneumonia.ages_zero_fifty == null || newPneumonia.ages_fifty_seventy == "" || newPneumonia.ages_fifty_seventy == null || newPneumonia.ages_seventy == "" || newPneumonia.ages_seventy == null) {
 			color="danger";
-			checkMSG="Debes insertar el nombre del país y el año.";
+			checkMSG="Debe completar todos los campos";
 			visible="true";
          }else{
         console.log("Inserting Pneumonia...."+JSON.stringify(newPneumonia));
@@ -112,7 +113,13 @@
 					color="success";
 					checkMSG="Entrada introducida con éxito";
 					visible="true";
+					newPneumonia.country = null;
+					newPneumonia.year = null;
+					newPneumonia.ages_zero_fifty = null;
+					newPneumonia.ages_fifty_seventy = null;
+					newPneumonia.ages_seventy = null;
 				getPneumonia();
+
 				//window.alert("Entrada introducida con éxito");
 				}
 				else if(res.status == 409){
@@ -179,6 +186,46 @@
 </script>
 
 <main>
+	<Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
+		<NavbarBrand href="#/info">INICIO</NavbarBrand>
+		<Nav navbar>
+			<Dropdown >
+				<DropdownToggle nav caret> API </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./api/v1/cancerdeaths-stats">Cancerdeaths-Stats</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./api/v1/air-pollution-stats">Airpollution-Stats</DropdownItem>
+				</DropdownMenu>
+            </Dropdown>
+              
+            <Dropdown>
+				<DropdownToggle nav caret> FRONT-END </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
+				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
+				  <DropdownItem href="#/graphics/azar-games-and-bet-activities">Actividad en loteria</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				</DropdownMenu>
+			  </Dropdown>
+			  
+			  <Dropdown >
+				<DropdownToggle nav caret> Gráficas </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
+				  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
+				  <DropdownItem href="#/graphics/azar-games-and-bet-activities">Actividad en loteria</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				</DropdownMenu>
+			  </Dropdown>
+		  <!--<NavItem>
+			<NavLink style="float:right; margin:left;" href="#/about">Acerca de</NavLink>
+		  </NavItem>-->
+		</Nav>
+	</Navbar>
     <h1>Tasa de muertes por neumonia</h1>
 	<Button on:click="{getPgAnt}">
 		Página Anterior
@@ -250,9 +297,9 @@ loading
 			<tr>
 				<td><input bind:value="{newPneumonia.country}"></td>
 				<td><input type="number" bind:value="{newPneumonia.year}"></td>
-				<td><input bind:value="{newPneumonia.ages_zero_fifty}"></td>
-				<td><input bind:value="{newPneumonia.ages_fifty_seventy}"></td>
-				<td><input bind:value="{newPneumonia.ages_seventy}"></td>
+				<td><input type="number" bind:value="{newPneumonia.ages_zero_fifty}"></td>
+				<td><input type="number" bind:value="{newPneumonia.ages_fifty_seventy}"></td>
+				<td><input type="number" bind:value="{newPneumonia.ages_seventy}"></td>
 
 				<td><Button outline color="primary" on:click="{insertPneumonia}">
 					Añadir
