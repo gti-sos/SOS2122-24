@@ -3,6 +3,7 @@
 	import Table from 'sveltestrap/src/Table.svelte';
 	import Button from 'sveltestrap/src/Button.svelte'; 
 	import Alert from 'sveltestrap/src/Alert.svelte';
+	import {Navbar, Nav, NavItem, NavLink, NavbarBrand, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'sveltestrap';
 
 	let pneumonia=[];
 	let from=null;
@@ -185,6 +186,46 @@
 </script>
 
 <main>
+	<Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
+		<NavbarBrand href="#/info">INICIO</NavbarBrand>
+		<Nav navbar>
+			<Dropdown >
+				<DropdownToggle nav caret> API </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./api/v1/cancerdeaths-stats">Cancerdeaths-Stats</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./api/v1/air-pollution-stats">Airpollution-Stats</DropdownItem>
+				</DropdownMenu>
+            </Dropdown>
+              
+            <Dropdown>
+				<DropdownToggle nav caret> FRONT-END </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
+				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
+				  <DropdownItem href="#/graphics/azar-games-and-bet-activities">Actividad en loteria</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				</DropdownMenu>
+			  </Dropdown>
+			  
+			  <Dropdown >
+				<DropdownToggle nav caret> Gráficas </DropdownToggle>
+				<DropdownMenu end>
+				  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
+				  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
+				  <DropdownItem href="#/graphics/azar-games-and-bet-activities">Actividad en loteria</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				</DropdownMenu>
+			  </Dropdown>
+		  <!--<NavItem>
+			<NavLink style="float:right; margin:left;" href="#/about">Acerca de</NavLink>
+		  </NavItem>-->
+		</Nav>
+	</Navbar>
     <h1>Tasa de muertes por neumonia</h1>
 	<Button on:click="{getPgAnt}">
 		Página Anterior
