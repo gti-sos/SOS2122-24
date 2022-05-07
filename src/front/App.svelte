@@ -8,6 +8,10 @@
 	import EditCancerdeaths from "./cancerdeaths-stats/EditCancerdeaths.svelte";
 	import Airpollution from './air-pollution-stats/Airpollution.svelte';
 	import EditAirpollution from "./air-pollution-stats/EditAirpollution.svelte";
+
+	
+import AirPollutionGraph from './air-pollution-stats/AirPollutionGraph.svelte';
+import MyGraph from './MyGraph.svelte';
 	//export let name;
 
 	const routes={
@@ -18,7 +22,9 @@
 		"/cancerdeaths-stats" : Cancerdeaths,
 		"/cancerdeaths/:country/:year" : EditCancerdeaths,
 		"/air-pollution-stats" : Airpollution,
-		"/air-pollution/:country/:year" : EditAirpollution
+		"/air-pollution/:country/:year" : EditAirpollution,
+		"/graphAirPollution" : AirPollutionGraph,
+		"/graph": MyGraph
 
 
 	};
