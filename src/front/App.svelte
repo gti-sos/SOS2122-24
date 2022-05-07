@@ -4,6 +4,7 @@
 
 	import Pneumonia from './pneumonia-stats/Pneumonia.svelte';
 	import EditPneumonia from "./pneumonia-stats/EditPneumonia.svelte";
+	import MyGraphPneumonia from './pneumonia-stats/MyGraphPneumonia.svelte';
 	import Cancerdeaths from './cancerdeaths-stats/Cancerdeaths.svelte';
 	import EditCancerdeaths from "./cancerdeaths-stats/EditCancerdeaths.svelte";
 	import Airpollution from './air-pollution-stats/Airpollution.svelte';
@@ -15,6 +16,7 @@
 
 		"/pneumonia-stats" : Pneumonia,
 		"/pneumonia/:country/:year" : EditPneumonia,
+		"/graphpneumonia": MyGraphPneumonia,
 		"/cancerdeaths-stats" : Cancerdeaths,
 		"/cancerdeaths/:country/:year" : EditCancerdeaths,
 		"/air-pollution-stats" : Airpollution,

@@ -96,7 +96,7 @@
 	async function insertPneumonia(){
 		if (newPneumonia.country == "" || newPneumonia.country == null || newPneumonia.year == "" || newPneumonia.year == null || newPneumonia.ages_zero_fifty == "" || newPneumonia.ages_zero_fifty == null || newPneumonia.ages_fifty_seventy == "" || newPneumonia.ages_fifty_seventy == null || newPneumonia.ages_seventy == "" || newPneumonia.ages_seventy == null) {
 			color="danger";
-			checkMSG="Debes insertar el nombre del país y el año.";
+			checkMSG="Debe completar todos los campos";
 			visible="true";
          }else{
         console.log("Inserting Pneumonia...."+JSON.stringify(newPneumonia));
@@ -112,7 +112,13 @@
 					color="success";
 					checkMSG="Entrada introducida con éxito";
 					visible="true";
+					newPneumonia.country = null;
+					newPneumonia.year = null;
+					newPneumonia.ages_zero_fifty = null;
+					newPneumonia.ages_fifty_seventy = null;
+					newPneumonia.ages_seventy = null;
 				getPneumonia();
+
 				//window.alert("Entrada introducida con éxito");
 				}
 				else if(res.status == 409){
@@ -250,9 +256,9 @@ loading
 			<tr>
 				<td><input bind:value="{newPneumonia.country}"></td>
 				<td><input type="number" bind:value="{newPneumonia.year}"></td>
-				<td><input bind:value="{newPneumonia.ages_zero_fifty}"></td>
-				<td><input bind:value="{newPneumonia.ages_fifty_seventy}"></td>
-				<td><input bind:value="{newPneumonia.ages_seventy}"></td>
+				<td><input type="number" bind:value="{newPneumonia.ages_zero_fifty}"></td>
+				<td><input type="number" bind:value="{newPneumonia.ages_fifty_seventy}"></td>
+				<td><input type="number" bind:value="{newPneumonia.ages_seventy}"></td>
 
 				<td><Button outline color="primary" on:click="{insertPneumonia}">
 					Añadir

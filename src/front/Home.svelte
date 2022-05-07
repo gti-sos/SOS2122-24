@@ -24,6 +24,11 @@
 	<p>- <a href="#/Pneumonia-stats">https://sos2122-24.herokuapp.com/#/Pneumonia-stats </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
 	<p>- <a href="#/air-pollution-stats">https://sos2122-24.herokuapp.com/#/air-pollution-stats </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castello</a>)</p>
 
+	<h3>GÁFRICAS:</h3>
+	<p>- <a href="#/Cancerdeaths-stats">https://sos2122-24.herokuapp.com/#/Cancerdeaths-stats </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+	<p>- <a href="#/graphpneumonia">https://sos2122-24.herokuapp.com/#/graphpneumonia </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
+	<p>- <a href="#/air-pollution-stats">https://sos2122-24.herokuapp.com/#/air-pollution-stats </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castello</a>)</p>
+	
 </main>
 <style>
 	main {
