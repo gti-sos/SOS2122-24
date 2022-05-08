@@ -204,10 +204,10 @@
 				<DropdownToggle nav caret> FRONT-END </DropdownToggle>
 				<DropdownMenu end>
 				  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
-				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
-				  <DropdownItem href="#/graphics/azar-games-and-bet-activities">Actividad en loteria</DropdownItem>
 				  <DropdownItem divider/>
-				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
 				</DropdownMenu>
 			  </Dropdown>
 			  
@@ -215,10 +215,12 @@
 				<DropdownToggle nav caret> Gráficas </DropdownToggle>
 				<DropdownMenu end>
 				  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
-				  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
-				  <DropdownItem href="#/graphics/azar-games-and-bet-activities">Actividad en loteria</DropdownItem>
 				  <DropdownItem divider/>
-				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./#/graph">Grafica comun</DropdownItem>
 				</DropdownMenu>
 			  </Dropdown>
 		  <!--<NavItem>

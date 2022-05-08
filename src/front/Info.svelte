@@ -11,10 +11,10 @@
 				<DropdownToggle nav caret> API </DropdownToggle>
 				<DropdownMenu end>
 				  <DropdownItem href="./api/v1/cancerdeaths-stats">Cancerdeaths-Stats</DropdownItem>
-				  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats</DropdownItem>
-				  <DropdownItem href="./api/v1/air-pollution-stats">Airpollution-Stats</DropdownItem>
 				  <DropdownItem divider/>
-				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./api/v1/air-pollution-stats">Airpollution-Stats</DropdownItem>
 				</DropdownMenu>
             </Dropdown>
               
@@ -22,10 +22,10 @@
 				<DropdownToggle nav caret> FRONT-END </DropdownToggle>
 				<DropdownMenu end>
 				  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
-				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT-END</DropdownItem>
-				  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
 				  <DropdownItem divider/>
-				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT-END</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
 				</DropdownMenu>
 			  </Dropdown>
 			  
@@ -33,11 +33,12 @@
 			<DropdownToggle nav caret> Gráficas </DropdownToggle>
 			<DropdownMenu end>
 			  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
-			  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
-			  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
-            	<DropdownItem href="#/graph">Grafica comun</DropdownItem>
 			  <DropdownItem divider/>
-			  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+			  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
+			  <DropdownItem divider/>
+            	<DropdownItem href="./#/graph">Grafica comun</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
 		  <!--<NavItem>
@@ -50,8 +51,8 @@
     <h1>SOS2122-24</h1>
 
     <h3>Team</h3>
-    <p>- <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>(fuente de datos: Cancerdeaths-stats)</p>
-    <p>- <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez </a> (fuente de datos: Pneumonia-stats)</p>
+    <p>- <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>(fuente de datos: <a href="https://ourworldindata.org/cancer#deaths-from-cancer">Cancerdeaths-stats</a>)</p>
+    <p>- <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez </a> (fuente de datos: <a href="https://ourworldindata.org/pneumonia">Pneumonia-stats</a>)</p>
     <p>- <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castelló</a>(fuente de datos: AirPollution-stats)</p>
     <br>
     <h3>Project description:</h3> Nuestras fuentes de información esta orientadas a analizar la relación que existe entre la tasa de muertes por neumonia, la tasa de muertes por cancer y la contaminacion del aire en interiores. 
@@ -77,8 +78,9 @@
     <br>
     <h3>GÁFRICAS:</h3>
     <p>- <a href="./#/cancerdeaths-graph">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
-    <p>- <a href="#/graphpneumonia">https://sos2122-24.herokuapp.com/#/graphpneumonia </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
+    <p>- <a href="./#/graphpneumonia">https://sos2122-24.herokuapp.com/#/graphpneumonia </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
     <p>- <a href="#/air-pollution-stats">https://sos2122-24.herokuapp.com/#/air-pollution-stats </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castello</a>)</p>
+	<p>- <a href="./#/graph">https://sos2122-24.herokuapp.com/#/graph </a></p>
 </main>
 <style>
 	main {
