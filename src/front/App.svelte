@@ -9,7 +9,7 @@
 	import Cancerdeaths from './cancerdeaths-stats/Cancerdeaths.svelte';
 	import EditCancerdeaths from "./cancerdeaths-stats/EditCancerdeaths.svelte";
 	import MyGraphCancerdeaths from "./cancerdeaths-stats/MyGraphCancerdeaths.svelte";
-	import Airpollution from './air-pollution-stats/Airpollution.svelte';
+	import Airpollution from './air-pollution-stats/AirPollution.svelte';
 	import EditAirpollution from "./air-pollution-stats/EditAirpollution.svelte";
 
 	
