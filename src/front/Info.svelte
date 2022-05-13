@@ -64,11 +64,13 @@
     <h3>Documentos POSTMAN:</h3>
     <p>- <a href="https://sos2122-24.herokuapp.com/api/v1/cancerdeaths-stats/docs">https://sos2122-24.herokuapp.com/api/v1/cancerdeaths-stats/docs </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
     <p>- <a href="https://sos2122-24.herokuapp.com/api/v1/pneumonia-stats/docs">https://sos2122-24.herokuapp.com/api/v1/pneumonia-stats/docs </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
+	<p>- <a href="https://sos2122-24.herokuapp.com/api/v2/pneumonia-stats/docs">https://sos2122-24.herokuapp.com/api/v2/pneumonia-stats/docs </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
     <p>- <a href="https://sos2122-24.herokuapp.com/api/v1/air-pollution-stats/docs">https://sos2122-24.herokuapp.com/api/v1/air-pollution-stats/docs </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castelló</a>)</p>
     <br>
 	<h3>APIS:</h3>
 	<p>- <a href="https://sos2122-24.herokuapp.com/api/v1/cancerdeaths-stats">https://sos2122-24.herokuapp.com/api/v1/cancerdeaths-stats </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
 	<p>- <a href="https://sos2122-24.herokuapp.com/api/v1/pneumonia-stats">https://sos2122-24.herokuapp.com/api/v1/pneumonia-stats </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
+	<p>- <a href="https://sos2122-24.herokuapp.com/api/v2/pneumonia-stats">https://sos2122-24.herokuapp.com/api/v2/pneumonia-stats </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
 	<p>- <a href="https://sos2122-24.herokuapp.com/api/v1/air-pollution-stats">https://sos2122-24.herokuapp.com/api/v1/air-pollution-stats </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castello</a>)</p>
     <br>
     <h3>FRONT-END:</h3>
