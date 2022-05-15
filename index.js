@@ -2,6 +2,10 @@ const cool = require("cool-ascii-faces");
 const express = require("express");
 const bodyParser = require("body-parser")
 const app = express();
+const request = require('request');
+const cors = require('cors'); 
+
+
 app.use(bodyParser.json());
 const port = process.env.PORT || 8080;
 
@@ -17,6 +21,19 @@ db_cancerdeaths_stats = new Datastore();
 db_pneumonia_stats = new Datastore();
 db_pneumonia_statsv2 = new Datastore();
 db_airpollution_stats = new Datastore();
+
+
+app.use(cors());
+
+var paths='/remoteAPI';
+var apiServerHost = 'https://sos2122-24.herokuapp.com/api/v2/pneumonia-stats';
+
+app.use(paths, function(req, res) {
+  var url = apiServerHost + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 
 
 cancerdeaths_stats_API.register(app,db_cancerdeaths_stats);

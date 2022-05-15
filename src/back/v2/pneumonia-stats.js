@@ -1,7 +1,7 @@
 const bodyParser = require("body-parser");
 
-const BASE_API_URL_PNEUMONIA_STATS = "/api/v2/pneumonia-stats";
 
+const BASE_API_URL_PNEUMONIA_STATS = "/api/v2/pneumonia-stats";
 
 
 var pneumonia_stats = [
