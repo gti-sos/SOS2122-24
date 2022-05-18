@@ -32,7 +32,7 @@
 
 	async function getcancerdeaths(){
 		console.log("fetching cancerdeaths ....");
-		let cadena = `/remoteAPI2`;
+		let cadena = `/api/v1/cancerdeaths-stats?offset=+${offset}+&limit=+${limit}`;
 		if(from !=null){
             cadena=cadena + `&from=${from}&` 
         }
