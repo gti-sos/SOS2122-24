@@ -9,6 +9,7 @@
 	import Cancerdeaths from './cancerdeaths-stats/Cancerdeaths.svelte';
 	import EditCancerdeaths from "./cancerdeaths-stats/EditCancerdeaths.svelte";
 	import MyGraphCancerdeaths from "./cancerdeaths-stats/MyGraphCancerdeaths.svelte";
+	import MyGraphCancerdeathsC3 from "./cancerdeaths-stats/MyGraphCancerdeathsC3.svelte";
 	import Airpollution from './air-pollution-stats/AirPollution.svelte';
 	import EditAirpollution from "./air-pollution-stats/EditAirPollution.svelte";
 
@@ -27,6 +28,7 @@ import MyGraph from './MyGraph.svelte';
 		"/cancerdeaths-stats" : Cancerdeaths,
 		"/cancerdeaths/:country/:year" : EditCancerdeaths,
 		"/cancerdeaths-graph": MyGraphCancerdeaths,
+		"/cancerdeaths-graph-C3": MyGraphCancerdeathsC3,
 		"/air-pollution-stats" : Airpollution,
 		"/air-pollution/:country/:year" : EditAirpollution,
 		"/graphAirPollution" : AirPollutionGraph,
