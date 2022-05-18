@@ -2,6 +2,7 @@ const cool = require("cool-ascii-faces");
 const express = require("express");
 const bodyParser = require("body-parser")
 const app = express();
+const jwt=require('jsonwebtoken');
 const request = require('request');
 const cors = require('cors'); 
 
