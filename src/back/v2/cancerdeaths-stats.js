@@ -2,7 +2,7 @@
 
 const bodyParser = require("body-parser");
 
-const BASE_API_URL_CANCERDEATHS_STATS = "/api/v2/cancerdeaths-stats-V2";
+const BASE_API_URL_CANCERDEATHS_STATS = "/api/v2/cancerdeaths-stats";
 
 
 

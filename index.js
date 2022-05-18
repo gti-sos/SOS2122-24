@@ -12,7 +12,7 @@ const port = process.env.PORT || 8080;
 
 //Ruta Apis
 const cancerdeaths_stats_API = require("./src/back/cancerdeaths-stats.js");
-const cancerdeaths_stats_APIV2 = require("./src/back/v2/cancerdeaths-stats-V2.js");
+const cancerdeaths_stats_APIV2 = require("./src/back/v2/cancerdeaths-stats.js");
 const pneumonia_stats_API = require("./src/back/pneumonia-stats.js");
 const pneumonia_stats_APIV2 = require("./src/back/v2/pneumonia-stats.js");
 const airpollution_stats_API = require("./src/back/air-pollution-stats.js");
