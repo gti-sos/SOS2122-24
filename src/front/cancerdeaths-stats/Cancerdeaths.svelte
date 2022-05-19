@@ -32,7 +32,7 @@
 
 	async function getcancerdeaths(){
 		console.log("fetching cancerdeaths ....");
-		let cadena = `./api/v1/cancerdeaths-stats?offset=+${offset}+&limit=+${limit}`;
+		let cadena = `/api/v1/cancerdeaths-stats?offset=+${offset}+&limit=+${limit}`;
 		if(from !=null){
             cadena=cadena + `&from=${from}&` 
         }
@@ -65,7 +65,7 @@
 		}
 		//limit=limit+10;
         console.log("fetching cancerdeaths ....");
-		let cadena = `./api/v1/cancerdeaths-stats?offset=+${offset}+&limit=+${limit}`;
+		let cadena = `/api/v1/cancerdeaths-stats?offset=+${offset}+&limit=+${limit}`;
 		if(from !=null){
             cadena=cadena + `&from=${from}&` 
         }
@@ -89,7 +89,7 @@
 		}
 		//limit=limit+10;
         console.log("fetching cancerdeaths ....");
-		let cadena = `./api/v1/cancerdeaths-stats?offset=+${offset}+&limit=+${limit}`;
+		let cadena = `/api/v1/cancerdeaths-stats?offset=+${offset}+&limit=+${limit}`;
 		if(from !=null){
             cadena=cadena + `&from=${from}&` 
         }
