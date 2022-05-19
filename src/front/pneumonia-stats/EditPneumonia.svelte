@@ -121,6 +121,7 @@
 				<DropdownMenu end>
 				  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
 				  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
+                  <DropdownItem href="./#/graphbillboard">Pneumonia-Stats-Billboard</DropdownItem>
 				  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
                   <DropdownItem divider/>
                   <DropdownItem href="./#/graph">Grafica comun</DropdownItem>
