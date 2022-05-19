@@ -32,7 +32,7 @@
                 ages_fifty_seventy.push(airpollution.ages_fifty_seventy);
                 ages_zero_fifty.push(airpollution.ages_zero_fifty);   
             });
-            pneumonias=data2;
+            pneumonias=data3;
             console.log("Recibido: " + pneumonias.length);
             pneumonias.forEach(pneumonia=>{
                // year.push(pneumonia.year);
@@ -42,7 +42,7 @@
                 ages2.push(pneumonia.ages_seventy+pneumonia.ages_fifty_seventy+pneumonia.ages_zero_fifty);
                 ages_seventy.push(pneumonia.ages_seventy);
             });
-            cancerdeaths=data3;
+            cancerdeaths=data2;
             console.log("Recibido: " + cancerdeaths.length);
             cancerdeaths.forEach(cancerdeath=>{
                 //year.push(cancerdeath.year);
