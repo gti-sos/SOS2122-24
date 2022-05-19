@@ -1,6 +1,6 @@
 # SOS2122-24
 [![Known Vulnerabilities](https://snyk.io/test/github/gti-sos/SOS2122-24/badge.svg)](https://snyk.io/test/github/gti-sos/SOS2122-24)
-[![codecov](https://codecov.io/gh/gti-sos/SOS2122-24/branch/main/graph/badge.svg)](https://codecov.io/gh/gti-sos/SOS2122-24)
+
 
 - **Team**
   - [Raúl Gómez Morales](https://github.com/Rgm13)
