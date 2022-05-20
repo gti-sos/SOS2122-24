@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/gti-sos/SOS2122-24#readme",
   "dependencies": {
+    "billboard": "^1.0.0",
     "billboard.js": "^3.4.1",
     "body-parser": "^1.20.0",
     "c3": "^0.7.20",
