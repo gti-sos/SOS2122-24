@@ -10,7 +10,9 @@
     "test-cancerdeaths-stats": "npx newman run ./test/cancerdeaths-stats.json -e ./test/env/LOCAL.json",
     "test-pneumonia-stats": "npx newman run ./test/pneumonia-stats.json -e ./test/env/HEROKU.json",
     "test-air-pollution-stats": "npx newman run ./test/air-pollution-stats.json -e ./test/env/LOCAL1.json",
-    "test": "npm run test-cancerdeaths-stats && npm run test-pneumonia-stats && npm run test-air-pollution-stats"
+    "test": "npm run test-cancerdeaths-stats && npm run test-pneumonia-stats && npm run test-air-pollution-stats",
+    "test1": "jest",
+  "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -43,6 +45,8 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "coveralls": "^3.1.1",
+    "jest": "^28.1.0",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
