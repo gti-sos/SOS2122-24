@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/gti-sos/SOS2122-24#readme",
   "dependencies": {
+    "billboard": "^1.0.0",
     "billboard.js": "^3.4.1",
     "body-parser": "^1.20.0",
     "c3": "^0.7.20",
@@ -42,6 +43,8 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "coveralls": "^3.1.1",
+    "jest": "^28.1.0",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
