@@ -4,38 +4,39 @@
 
     //const delay=ms=>new Promise(res=>setTimeout(res,ms));
     let pneumonias=[];
-    let population_levels=[];
+    let agriculturals=[];
     let country=[];
     let year=[];
     let ages_zero_fifty=["menos de 50 años"];
     let ages_fifty_seventy=["de 50 a 70 años"];
     let ages_seventy=["mayores de 70 años"];
-    let death_rate=["tasa de mortalidad"];
-    let life_expectancy_birth=["esperanza de vida"];
-    let birth_rate=["tasa de natalidad"];
+    let production=["produccion"];
+    let absolute_change=["cambio absoluto"];
+    let relative_change=["cambio relativo"]
+    
     let datosOrdenados=[];
 
     async function getData(){
-        console.log("Fetching pneumonia y population_levels....");
-        const res1 = await fetch("https://sos2122-10.herokuapp.com/api/v2/population-levels");
+        console.log("Fetching pneumonia y agricultural....");
+        const res1 = await fetch("https://sos2122-20.herokuapp.com/api/v1/agriculturalproduction-stats");
         const res2= await fetch("/api/v1/pneumonia-stats");
         if(res1.ok && res2.ok){
             const data1 = await res1.json();
             const data2 = await res2.json();          
-            population_levels = data1;
+            agriculturals = data1;
             console.log("Ordenadas correctamente");
-            population_levels.forEach(population_level => {
-               // year.push(population_level.year);
-                //country.push(population_level.country+"-"+ population_level.year);
-                death_rate.push(population_level.death_rate);
-                life_expectancy_birth.push(population_level.life_expectancy_birth);
-                birth_rate.push(population_level.birth_rate);          
+            agriculturals.forEach(agricultural => {
+                year.push(agricultural.year);
+                country.push(agricultural.country+"-"+ agricultural.year);
+                production.push(agricultural.production);
+                absolute_change.push(agricultural.absolute_change);
+                relative_change.push(agricultural.relative_change);          
             });
            pneumonias=data2;
             console.log("Recibido: " + pneumonias.length);
             pneumonias.forEach(pneumonia=>{
-                year.push(pneumonia.year);
-                country.push(pneumonia.country+"-"+pneumonia.year);
+              //  year.push(pneumonia.year);
+                //country.push(pneumonia.country+"-"+pneumonia.year);
                 ages_zero_fifty.push(pneumonia.ages_zero_fifty);
                 ages_fifty_seventy.push(pneumonia.ages_fifty_seventy);
                 ages_seventy.push(pneumonia.ages_seventy);
@@ -54,7 +55,7 @@
             ["data1", 30],
 	        ["data2", 120]
           ],
-          type: "area", // for ESM specify as: pie()
+          type: "bubble", // for ESM specify as: pie()
          
           onclick: function(d, i) {
           console.log("onclick", d, i);
@@ -82,9 +83,9 @@
                  /* ages_zero_fifty,
                   ages_fifty_seventy,
                   ages_seventy,*/
-                  death_rate,
-                  birth_rate,
-                  life_expectancy_birth,
+                  absolute_change,
+                  relative_change,
+                  production,
                   ages_zero_fifty,
                   ages_fifty_seventy,
                   ages_seventy
@@ -155,6 +156,6 @@
     <div id="pieChart"></div>
     <br>
     <br>
-    <p> Este grafico compara las muertes por neumonia en distintos rangos de edades y el estudio de la poblacion en la actualidad</p>
+    <p> Este grafico compara las muertes por neumonia en distintos rangos de edades y el estudio de la produccion agricola</p>
     
 </main>
