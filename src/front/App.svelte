@@ -7,6 +7,7 @@
 	import EditPneumonia from "./pneumonia-stats/EditPneumonia.svelte";
 	import MyGraphPneumonia from './pneumonia-stats/MyGraphPneumonia.svelte';
 	import ApiPopulationLevels from './pneumonia-stats/ApiPopulationLevels.svelte';
+	import AgriculturalProductions from './pneumonia-stats/AgriculturalProductions.svelte';
 	import Billboard from './pneumonia-stats/Billboard.svelte';
 	import Cancerdeaths from './cancerdeaths-stats/Cancerdeaths.svelte';
 	import EditCancerdeaths from "./cancerdeaths-stats/EditCancerdeaths.svelte";
@@ -28,6 +29,7 @@ import MyGraph from './MyGraph.svelte';
 		"/pneumonia/:country/:year" : EditPneumonia,
 		"/graphpneumonia": MyGraphPneumonia,
 		"/graphpopulationlevels": ApiPopulationLevels,
+		"/graphagricultural":AgriculturalProductions,
 		"/graphbillboard" : Billboard,
 		"/cancerdeaths-stats" : Cancerdeaths,
 		"/cancerdeaths/:country/:year" : EditCancerdeaths,
