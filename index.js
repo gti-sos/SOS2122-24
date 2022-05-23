@@ -53,6 +53,15 @@ app.use(paths, function(req, res) {
 
 //Proxy Ali
 
+var paths='/remoteAPI3';
+var apiServerHost = 'https://sos2122-24.herokuapp.com/api/v1/air-pollution-stats';
+
+app.use(paths, function(req, res) {
+  var url = apiServerHost + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 //DB
 cancerdeaths_stats_API.register(app,db_cancerdeaths_stats);
 cancerdeaths_stats_APIV2.register(app,db_cancerdeaths_statsV2);
