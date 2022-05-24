@@ -42,6 +42,8 @@
 			  <DropdownItem divider/>
 			  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
 			  <DropdownItem divider/>
+			  <DropdownItem href="#/airpollution-apexcharts">AirPollution-Stats-ApexCharts</DropdownItem>
+			  <DropdownItem divider/>
             	<DropdownItem href="./#/graph">Gráfica común</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
@@ -57,7 +59,7 @@
     <h3>Team</h3>
     <p>- <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>(fuente de datos: <a href="https://ourworldindata.org/cancer#deaths-from-cancer">Cancerdeaths-stats</a>)</p>
     <p>- <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez </a> (fuente de datos: <a href="https://ourworldindata.org/pneumonia">Pneumonia-stats</a>)</p>
-    <p>- <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castelló</a>(fuente de datos: AirPollution-stats)</p>
+    <p>- <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castelló</a>(fuente de datos: <a href="https://ourworldindata.org/air-pollution">AirPollution-stats</a>)</p>
     <br>
     <h3>Project description:</h3> Nuestras fuentes de información esta orientadas a analizar la relación que existe entre la tasa de muertes por neumonia, la tasa de muertes por cancer y la contaminacion del aire en interiores. 
     <br><br>
@@ -89,7 +91,8 @@
 	<p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-C3 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
     <p>- <a href="./#/graphpneumonia">https://sos2122-24.herokuapp.com/#/graphpneumonia </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
 	<p>- <a href="./#/graphbillboard">https://sos2122-24.herokuapp.com/#/graphbillboard </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
-    <p>- <a href="#/air-pollution-stats">https://sos2122-24.herokuapp.com/#/air-pollution-stats </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castello</a>)</p>
+    <p>- <a href="#/graphAirPollution">https://sos2122-24.herokuapp.com/#/air-pollution-stats </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castello</a>)</p>
+	<p>- <a href="#/airpollution-apexcharts">https://sos2122-24.herokuapp.com/#/airpollution-apexcharts </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castello</a>)</p>
 	<p>- <a href="./#/graph">https://sos2122-24.herokuapp.com/#/graph </a>(developed by <a href="https://github.com/gti-sos/SOS2122-24">SOS2122-24</a>)</p>
 </main>
 <style>
