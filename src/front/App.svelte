@@ -19,6 +19,8 @@
 	
 import AirPollutionGraph from './air-pollution-stats/AirPollutionGraph.svelte';
 import MyGraph from './MyGraph.svelte';
+import AirPollutionApexcharts from './air-pollution-stats/AirPollutionApexcharts.svelte';
+
 	//export let name;
 
 	const routes={
@@ -38,6 +40,7 @@ import MyGraph from './MyGraph.svelte';
 		"/air-pollution-stats" : Airpollution,
 		"/air-pollution/:country/:year" : EditAirpollution,
 		"/graphAirPollution" : AirPollutionGraph,
+		"/airpollution-apexcharts": AirPollutionApexcharts,
 		"/graph": MyGraph
 
 
