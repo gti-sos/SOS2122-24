@@ -51,7 +51,7 @@ import IntegracionExt2 from './air-pollution-stats/IntegracionExt2.svelte';
 		"/ext1": IntegracionExt1,
 		"/ext2": IntegracionExt2,
 		"/graph": MyGraph,
-		"/graph2": MyGraph2
+		"/analytics": MyGraph2
 
 
 	};
