@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser")
 const app = express();
 //Proxy
+
 const request = require('request');
 const cors = require('cors'); 
 const path = require('path');
@@ -37,7 +38,7 @@ var apiServerHost = 'https://sos2122-24.herokuapp.com/api/v2/pneumonia-stats';
 
 app.use(paths, function(req, res) {
   var url = apiServerHost + req.url;
-  console.log('piped: ' + req.url);
+  //console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
 
@@ -87,6 +88,28 @@ var apiServerHostr2 = 'https://sos2122-31.herokuapp.com/api/v2/alphabetization-s
 
 app.use(pathsr2, function(req, res) {
   var url = apiServerHostr2 + req.url;
+  //console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+
+
+//proxy Integracion Laura con API population
+var pathsL1='/remoteAPIPOPULATION';
+var apiServerHostL1 = 'https://sos2122-10.herokuapp.com/api/v2/population-levels';
+
+app.use(pathsL1, function(req, res) {
+  var url = apiServerHostL1 + req.url;
+  //console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+//proxy Integracion Laura con API Agricultural
+var pathsL2='/remoteAPIAGRICULTURAL';
+var apiServerHostL2 = 'https://sos2122-20.herokuapp.com/api/v1/agriculturalproduction-stats';
+
+app.use(pathsL2, function(req, res) {
+  var url = apiServerHostL2 + req.url;
   //console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });

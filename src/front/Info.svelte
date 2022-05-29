@@ -37,6 +37,36 @@
 			  <DropdownItem href="./#/cancerdeaths-graph-EXT3">Cancerdeaths-Stats-EXT3</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
+		  <Dropdown >
+			<DropdownToggle nav caret> Laura </DropdownToggle>
+			<DropdownMenu end>
+				<DropdownItem ><h7>FRONT-END</h7></DropdownItem>
+				<DropdownItem divider/>
+				<DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
+				<DropdownItem divider style="border-color:black;"/>
+				<DropdownItem ><h7>API</h7></DropdownItem>
+				<DropdownItem divider/>
+				<DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats-API</DropdownItem>
+				<DropdownItem divider/>
+				<DropdownItem href="./api/v2/pneumonia-stats">Pneumonia-Stats-V2-API</DropdownItem>
+			  <DropdownItem divider style="border-color:black;"/>
+			  <DropdownItem ><h7>Graficas</h7></DropdownItem>
+				<DropdownItem divider/>
+			  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphbillboard">Pneumonia-Stats-Billboard</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphpopulationlevels">Pneumonia-Stats-PopulationLevels</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphagricultural">Pneumonia-Stats-Agricultural</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphexterna1-pneumonia">Pneumonia-Stats-Externa1</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphexterna2-pneumonia">Pneumonia-Stats-Externa2</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphexterna3-pneumonia">Pneumonia-Stats-Externa3</DropdownItem>
+			</DropdownMenu>
+		  </Dropdown>
 
 		<Dropdown >
 			<DropdownToggle nav caret> Ali </DropdownToggle>
@@ -82,7 +112,7 @@
 			<DropdownMenu end>
 				
 				  <DropdownItem href="./#/graph">Gráfica común</DropdownItem><DropdownItem divider/>
-				  <DropdownItem href="./#/analytics"> 2º Gráfica común</DropdownItem>
+				  <DropdownItem href="./#/graph2"> 2º Gráfica común</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
 	  <!--<NavItem>
@@ -115,8 +145,8 @@
 	<h3>APIS:</h3>
 	<p>- <a href="./api/v1/cancerdeaths-stats">https://sos2122-24.herokuapp.com/api/v1/cancerdeaths-stats </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
 	<p>- <a href="./api/v2/cancerdeaths-stats">https://sos2122-24.herokuapp.com/api/v2/cancerdeaths-stats </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
-	<p>- <a href="https://sos2122-24.herokuapp.com/api/v1/pneumonia-stats">https://sos2122-24.herokuapp.com/api/v1/pneumonia-stats </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
-	<p>- <a href="https://sos2122-24.herokuapp.com/api/v2/pneumonia-stats">https://sos2122-24.herokuapp.com/api/v2/pneumonia-stats </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
+	<p>- <a href="./api/v1/pneumonia-stats">https://sos2122-24.herokuapp.com/api/v1/pneumonia-stats </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
+	<p>- <a href="./api/v2/pneumonia-stats">https://sos2122-24.herokuapp.com/api/v2/pneumonia-stats </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
 	<p>- <a href="https://sos2122-24.herokuapp.com/api/v1/air-pollution-stats">https://sos2122-24.herokuapp.com/api/v1/air-pollution-stats </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castello</a>)</p>
     <br>
     <h3>FRONT-END:</h3>
@@ -137,6 +167,7 @@
     <p>- <a href="#/graphAirPollution">https://sos2122-24.herokuapp.com/#/air-pollution-stats </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castello</a>)</p>
 	<p>- <a href="#/airpollution-apexcharts">https://sos2122-24.herokuapp.com/#/airpollution-apexcharts </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castello</a>)</p>
 	<p>- <a href="./#/graph">https://sos2122-24.herokuapp.com/#/graph </a>(developed by <a href="https://github.com/gti-sos/SOS2122-24">SOS2122-24</a>)</p>
+	<p>- <a href="./#/graph">https://sos2122-24.herokuapp.com/#/analytics </a>(developed by <a href="https://github.com/gti-sos/SOS2122-24">SOS2122-24</a>)</p>
 </main>
 <style>
 	main {

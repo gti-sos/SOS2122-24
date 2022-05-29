@@ -13,38 +13,46 @@
     let production=["produccion"];
     let absolute_change=["cambio absoluto"];
     let relative_change=["cambio relativo"]
-    
-    let datosOrdenados=[];
 
     async function getData(){
+      const datosAgricultural = await fetch("/remoteAPIAGRICULTURAL/loadInitialData");
+      const datosPneumonia= await fetch("/api/v1/pneumonia-stats/loadInitialData");
         console.log("Fetching pneumonia y agricultural....");
-        const res1 = await fetch("https://sos2122-20.herokuapp.com/api/v1/agriculturalproduction-stats");
+        const res1 = await fetch("/remoteAPIAGRICULTURAL");
         const res2= await fetch("/api/v1/pneumonia-stats");
         if(res1.ok && res2.ok){
             const data1 = await res1.json();
             const data2 = await res2.json();          
             agriculturals = data1;
-            console.log("Ordenadas correctamente");
+            console.log("Recibido: " +agriculturals.length);
             agriculturals.forEach(agricultural => {
-                year.push(agricultural.year);
-                country.push(agricultural.country+"-"+ agricultural.year);
+                //year.push(agricultural.year);
+                country.push(agricultural.country+"-"+agricultural.year);
                 production.push(agricultural.production);
                 absolute_change.push(agricultural.absolute_change);
-                relative_change.push(agricultural.relative_change);          
+                relative_change.push(agricultural.relative_change);
+                console.log(country);
+                ages_zero_fifty.push("-");
+                ages_fifty_seventy.push("-");
+                ages_seventy.push("-");          
             });
            pneumonias=data2;
             console.log("Recibido: " + pneumonias.length);
             pneumonias.forEach(pneumonia=>{
-              //  year.push(pneumonia.year);
-                //country.push(pneumonia.country+"-"+pneumonia.year);
+                //year.push(pneumonia.year);
+                country.push(pneumonia.country+"-"+pneumonia.year);
                 ages_zero_fifty.push(pneumonia.ages_zero_fifty);
                 ages_fifty_seventy.push(pneumonia.ages_fifty_seventy);
                 ages_seventy.push(pneumonia.ages_seventy);
+                production.push("-");
+                absolute_change.push("-");
+                relative_change.push("-");
             });   
             
         }else{
             console.log("Error, can`t charge data");
         }
+        loadGraph();
     }
     
 
@@ -55,23 +63,22 @@
             ["data1", 30],
 	        ["data2", 120]
           ],
-          type: "bubble", // for ESM specify as: pie()
+          type: "area", // for ESM specify as: pie()
          
-          onclick: function(d, i) {
-          console.log("onclick", d, i);
-         },
-          onover: function(d, i) {
-          console.log("onover", d, i);
-         },
-          onout: function(d, i) {
-          console.log("onout", d, i);
-         }
+         // onclick: function(d, i) {
+         // console.log("onclick", d, i);
+         //},
+         // onover: function(d, i) {
+          //console.log("onover", d, i);
+         //},
+         // onout: function(d, i) {
+          //console.log("onout", d, i);
+         //}
         },
         axis: {
             x: {
                 type: "category",
                 categories: country
-
             },
         },
         bindto: "#pieChart"
@@ -80,9 +87,6 @@
       setTimeout(function() {
           chart.load({
               columns: [
-                 /* ages_zero_fifty,
-                  ages_fifty_seventy,
-                  ages_seventy,*/
                   absolute_change,
                   relative_change,
                   production,
@@ -108,7 +112,7 @@
     <script type="text/javascript" src="https://d3js.org/d3.v6.min.js"></script>
     <link rel="stylesheet" href="./jssss/billboard.js/dist/billboard.css">
     <link rel="stylesheet" href="./jssss/billboard.js/dist/theme/insight.css">
-    <script type="text/javascript" src="/jssss/billboard.js/dist/billboard.js" on:load="{loadGraph}"></script>
+    <script type="text/javascript" src="/jssss/billboard.js/dist/billboard.js"></script>
     
 </svelte:head>
 
@@ -118,44 +122,40 @@
 		<NavbarBrand href="#/info">INICIO</NavbarBrand>
 		<Nav navbar>
 			<Dropdown >
-				<DropdownToggle nav caret> API </DropdownToggle>
-				<DropdownMenu end>
-				  <DropdownItem href="./api/v1/cancerdeaths-stats">Cancerdeaths-Stats</DropdownItem>
-				  <DropdownItem divider/>
-				  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats</DropdownItem>
-				  <DropdownItem divider/>
-				  <DropdownItem href="./api/v1/air-pollution-stats">Airpollution-Stats</DropdownItem>
-				</DropdownMenu>
-            </Dropdown>
-              
-            <Dropdown>
-				<DropdownToggle nav caret> FRONT-END </DropdownToggle>
-				<DropdownMenu end>
-				  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
-                  <DropdownItem divider/>
-				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
-                  <DropdownItem divider/>
-				  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
-				</DropdownMenu>
-			  </Dropdown>
-			  
-			  <Dropdown >
-				<DropdownToggle nav caret> Gráficas </DropdownToggle>
-				<DropdownMenu end>
-				  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
-                  <DropdownItem divider/>
-				  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
-                  <DropdownItem divider/>
-				  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
-                  <DropdownItem divider/>
-                  <DropdownItem href="./#/graph">Grafica comun</DropdownItem>
-				</DropdownMenu>
-			  </Dropdown>
+        <DropdownToggle nav caret> Laura </DropdownToggle>
+        <DropdownMenu end>
+          <DropdownItem ><h7>FRONT-END</h7></DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
+          <DropdownItem divider style="border-color:black;"/>
+          <DropdownItem ><h7>API</h7></DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats-API</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./api/v2/pneumonia-stats">Pneumonia-Stats-V2-API</DropdownItem>
+          <DropdownItem divider style="border-color:black;"/>
+          <DropdownItem ><h7>Graficas</h7></DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphbillboard">Pneumonia-Stats-Billboard</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphpopulationlevels">Pneumonia-Stats-PopulationLevels</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphagricultural">Pneumonia-Stats-Agricultural</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphexterna1-pneumonia">Pneumonia-Stats-Externa1</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphexterna2-pneumonia">Pneumonia-Stats-Externa2</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphexterna3-pneumonia">Pneumonia-Stats-Externa3</DropdownItem>
+        </DropdownMenu>
+        </Dropdown>
 		</Nav>
 	</Navbar>
     <div id="pieChart"></div>
     <br>
     <br>
-    <p> Este grafico compara las muertes por neumonia en distintos rangos de edades y el estudio de la produccion agricola</p>
+    <p> Este grafico compara las muertes por neumonia en distintos rangos de edades y el estudio de la producción agricola</p>
     
 </main>

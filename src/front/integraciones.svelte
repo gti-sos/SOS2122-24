@@ -37,6 +37,36 @@
 			  <DropdownItem href="./#/cancerdeaths-graph-EXT3">Cancerdeaths-Stats-EXT3</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
+		  <Dropdown >
+			<DropdownToggle nav caret> Laura </DropdownToggle>
+			<DropdownMenu end>
+			  <DropdownItem ><h7>FRONT-END</h7></DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
+			  <DropdownItem divider style="border-color:black;"/>
+			  <DropdownItem ><h7>API</h7></DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats-API</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./api/v2/pneumonia-stats">Pneumonia-Stats-V2-API</DropdownItem>
+			  <DropdownItem divider style="border-color:black;"/>
+			  <DropdownItem ><h7>Graficas</h7></DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphbillboard">Pneumonia-Stats-Billboard</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphpopulationlevels">Pneumonia-Stats-PopulationLevels</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphagricultural">Pneumonia-Stats-Agricultural</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphexterna1-pneumonia">Pneumonia-Stats-Externa1</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphexterna2-pneumonia">Pneumonia-Stats-Externa2</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./#/graphexterna3-pneumonia">Pneumonia-Stats-Externa3</DropdownItem>
+			</DropdownMenu>
+			</Dropdown>
 
 		<Dropdown >
 			<DropdownToggle nav caret> Ali </DropdownToggle>
@@ -100,6 +130,14 @@
 	<p>- <a href="./#/cancerdeaths-graph-EXT1">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT1 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
 	<p>- <a href="./#/cancerdeaths-graph-EXT2">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT2 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
 	<p>- <a href="./#/cancerdeaths-graph-EXT3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT3 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+    <br>
+
+	<h3> LAURA MARTÍNEZ SÁNCHEZ</h3>
+	<p>- <a href="./#/graphpopulationlevels">https://sos2122-24.herokuapp.com/#/graphpopulationlevels </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
+	<p>- <a href="./#/graphagricultural">https://sos2122-24.herokuapp.com/#/graphagricultural </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
+	<p>- <a href="./#/graphexterna1-pneumonia">https://sos2122-24.herokuapp.com/#/graphexterna1-pneumonia </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
+	<p>- <a href="./#/graphexterna2-pneumonia">https://sos2122-24.herokuapp.com/#/graphexterna2-pneumonia </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
+	<p>- <a href="./#/graphexterna3-pneumonia">https://sos2122-24.herokuapp.com/#/graphexterna3-pneumonia </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
     <br>
 
 	<h3>ALICIA CAMPOS CASTELLÓ</h3>
