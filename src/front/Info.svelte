@@ -3,55 +3,61 @@
 </script>
 
 
-<body>
-    <Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
-		<NavbarBrand href="#/info">INICIO</NavbarBrand>
-		<Nav navbar>
-			<Dropdown >
-				<DropdownToggle nav caret> API </DropdownToggle>
-				<DropdownMenu end>
-				  <DropdownItem href="./api/v1/cancerdeaths-stats">Cancerdeaths-Stats</DropdownItem>
-				  <DropdownItem divider/>
-				  <DropdownItem href="./api/v2/cancerdeaths-stats">Cancerdeaths-Stats-V2</DropdownItem>
-				  <DropdownItem divider/>
-				  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats</DropdownItem>
-				  <DropdownItem divider/>
-				  <DropdownItem href="./api/v1/air-pollution-stats">Airpollution-Stats</DropdownItem>
-				</DropdownMenu>
-            </Dropdown>
-              
-            <Dropdown>
-				<DropdownToggle nav caret> FRONT-END </DropdownToggle>
-				<DropdownMenu end>
-				  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
-				  <DropdownItem divider/>
-				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT-END</DropdownItem>
-				  <DropdownItem divider/>
-				  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
-				</DropdownMenu>
-			  </Dropdown>
-			  
+<body><Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
+	<NavbarBrand href="#/info">INICIO</NavbarBrand>
+	<Nav navbar>
+		<Dropdown >
+			<DropdownToggle nav caret> Ali </DropdownToggle>
+			<DropdownMenu end>
+				<DropdownItem href="./#/aleali">AirPollution-Stats-SOS1</DropdownItem>
+				<DropdownItem divider/>
+				<DropdownItem href="./#/felipe">AirPollution-Stats-SOS2</DropdownItem>
+				<DropdownItem divider/>
+				<DropdownItem href="./#/ext1">AirPollution-Stats-Ext1</DropdownItem>
+				<DropdownItem divider/>
+				<DropdownItem href="./#/ext2">AirPollution-Stats-Ext2</DropdownItem>
+				<DropdownItem divider/>
+				<DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
+				<DropdownItem divider/>
+				<DropdownItem href="#/airpollution-apexcharts">AirPollution-Stats-ApexCharts</DropdownItem>
+				
+			</DropdownMenu>
+		  </Dropdown>
+		<Dropdown >
+			<DropdownToggle nav caret> API </DropdownToggle>
+			<DropdownMenu end>
+			  <DropdownItem href="./api/v1/cancerdeaths-stats">Cancerdeaths-Stats</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="./api/v1/air-pollution-stats">Airpollution-Stats</DropdownItem>
+			</DropdownMenu>
+		</Dropdown>
+		  
+		<Dropdown>
+			<DropdownToggle nav caret> FRONT-END </DropdownToggle>
+			<DropdownMenu end>
+			  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
+			  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
+			  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
+			  <DropdownItem divider/>
+			  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+			</DropdownMenu>
+		  </Dropdown>
+		  
 		  <Dropdown >
 			<DropdownToggle nav caret> Gráficas </DropdownToggle>
 			<DropdownMenu end>
-			  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
-			  <DropdownItem divider/>
-			  <DropdownItem href="./#/cancerdeaths-graph-C3">Cancerdeaths-Stats-C3</DropdownItem>
-			  <DropdownItem divider/>
-			  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
-			  <DropdownItem divider/>
-			  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
-			  <DropdownItem divider/>
-			  <DropdownItem href="#/airpollution-apexcharts">AirPollution-Stats-ApexCharts</DropdownItem>
-			  <DropdownItem divider/>
-            	<DropdownItem href="./#/graph">Gráfica común</DropdownItem>
+				
+				  <DropdownItem href="./#/graph">Gráfica común</DropdownItem><DropdownItem divider/>
+				  <DropdownItem href="./#/graph2"> 2º Gráfica común</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
-		  <!--<NavItem>
-			<NavLink style="float:right; margin:left;" href="#/about">Acerca de</NavLink>
-		  </NavItem>-->
-		</Nav>
-	</Navbar>
+	  <!--<NavItem>
+		<NavLink style="float:right; margin:left;" href="#/about">Acerca de</NavLink>
+	  </NavItem>-->
+	</Nav>
+</Navbar>
   </body>
 <main>
     <h1>SOS2122-24</h1>

@@ -61,6 +61,14 @@ app.use(paths, function(req, res) {
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
+var paths1='/DeudaAPI';
+var apiServerHost1 = 'https://sos2122-27.herokuapp.com/api/v2/public-debt-stats';
+
+app.use(paths1, function(req, res) {
+  var url = apiServerHost1 + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
 
 //DB
 cancerdeaths_stats_API.register(app,db_cancerdeaths_stats);
@@ -82,11 +90,3 @@ app.get("/cool", (req,res)=>{
 app.listen(port, ()=>{
     console.log(`Server ready at port ${port}`);
 });
-
-
-
-
-
-
-
-

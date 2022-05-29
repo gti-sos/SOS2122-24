@@ -78,9 +78,26 @@
 </svelte:head>
 
 <main>
-    <Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
+  <Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
 		<NavbarBrand href="#/info">INICIO</NavbarBrand>
 		<Nav navbar>
+			<Dropdown >
+				<DropdownToggle nav caret> Ali </DropdownToggle>
+				<DropdownMenu end>
+					<DropdownItem href="./#/aleali">AirPollution-Stats-SOS1</DropdownItem>
+					<DropdownItem divider/>
+					<DropdownItem href="./#/felipe">AirPollution-Stats-SOS2</DropdownItem>
+					<DropdownItem divider/>
+					<DropdownItem href="./#/ext1">AirPollution-Stats-Ext1</DropdownItem>
+					<DropdownItem divider/>
+					<DropdownItem href="./#/ext2">AirPollution-Stats-Ext2</DropdownItem>
+					<DropdownItem divider/>
+					<DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
+					<DropdownItem divider/>
+					<DropdownItem href="#/airpollution-apexcharts">AirPollution-Stats-ApexCharts</DropdownItem>
+					
+				</DropdownMenu>
+			  </Dropdown>
 			<Dropdown >
 				<DropdownToggle nav caret> API </DropdownToggle>
 				<DropdownMenu end>
@@ -106,12 +123,9 @@
 			  <Dropdown >
 				<DropdownToggle nav caret> Gráficas </DropdownToggle>
 				<DropdownMenu end>
-				  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
-				  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
-				  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
-                  <DropdownItem href="#/graph">Grafica comun</DropdownItem>
-				  <DropdownItem divider/>
-				  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
+				
+					  <DropdownItem href="./#/graph">Gráfica común</DropdownItem><DropdownItem divider/>
+					  <DropdownItem href="./#/graph2"> 2º Gráfica común</DropdownItem>
 				</DropdownMenu>
 			  </Dropdown>
 		  <!--<NavItem>
