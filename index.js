@@ -5,6 +5,7 @@ const app = express();
 //Proxy
 const request = require('request');
 const cors = require('cors'); 
+const path = require('path');
 //
 
 app.use(bodyParser.json());
@@ -69,6 +70,27 @@ app.use(paths1, function(req, res) {
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
+
+//Proxy SOS1-RAUL
+var pathsr1='/remoteAPISOS1';
+var apiServerHostr1 = 'https://sos2122-20.herokuapp.com/api/v1/landusage-stats';
+
+app.use(pathsr1, function(req, res) {
+  var url = apiServerHostr1 + req.url;
+  //console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+//Proxy SOS2-RAUL
+var pathsr2='/remoteAPISOS2';
+var apiServerHostr2 = 'https://sos2122-31.herokuapp.com/api/v2/alphabetization-stats';
+
+app.use(pathsr2, function(req, res) {
+  var url = apiServerHostr2 + req.url;
+  //console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 
 //DB
 cancerdeaths_stats_API.register(app,db_cancerdeaths_stats);

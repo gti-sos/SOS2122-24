@@ -201,46 +201,37 @@
 		<NavbarBrand href="#/info">INICIO</NavbarBrand>
 		<Nav navbar>
 			<Dropdown >
-				<DropdownToggle nav caret> API </DropdownToggle>
+				<DropdownToggle nav caret> Raúl </DropdownToggle>
 				<DropdownMenu end>
-				  <DropdownItem href="./api/v1/cancerdeaths-stats">Cancerdeaths-Stats</DropdownItem>
+					<DropdownItem ><h7>FRONT-END</h7></DropdownItem>
+					<DropdownItem divider/>
+					<DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
+					<DropdownItem divider style="border-color:black;"/>
+					<DropdownItem ><h7>API</h7></DropdownItem>
+					<DropdownItem divider/>
+					<DropdownItem href="./api/v1/cancerdeaths-stats">Cancerdeaths-Stats-API</DropdownItem>
+					<DropdownItem divider/>
+					<DropdownItem href="./api/v2/cancerdeaths-stats">Cancerdeaths-Stats-V2-API</DropdownItem>
+				  <DropdownItem divider style="border-color:black;"/>
+				  <DropdownItem ><h7>Graficas</h7></DropdownItem>
+					<DropdownItem divider/>
+				  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
 				  <DropdownItem divider/>
-				  <DropdownItem href="./api/v2/cancerdeaths-stats">Cancerdeaths-Stats-V2</DropdownItem>
+				  <DropdownItem href="./#/cancerdeaths-graph-C3">Cancerdeaths-Stats-C3</DropdownItem>
 				  <DropdownItem divider/>
-				  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats</DropdownItem>
+				  <DropdownItem href="./#/cancerdeaths-graph-SOS1">Cancerdeaths-Stats-SOS1</DropdownItem>
 				  <DropdownItem divider/>
-				  <DropdownItem href="./api/v1/air-pollution-stats">Airpollution-Stats</DropdownItem>
-				</DropdownMenu>
-            </Dropdown>
-              
-            <Dropdown>
-				<DropdownToggle nav caret> FRONT-END </DropdownToggle>
-				<DropdownMenu end>
-				  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
+				  <DropdownItem href="./#/cancerdeaths-graph-SOS2">Cancerdeaths-Stats-SOS2</DropdownItem>
 				  <DropdownItem divider/>
-				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT-END</DropdownItem>
+				  <DropdownItem href="./#/cancerdeaths-graph-EXT1">Cancerdeaths-Stats-EXT1</DropdownItem>
 				  <DropdownItem divider/>
-				  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
+				  <DropdownItem href="./#/cancerdeaths-graph-EXT2">Cancerdeaths-Stats-EXT2</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./#/cancerdeaths-graph-EXT3">Cancerdeaths-Stats-EXT3</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./#/graph">Gráfica común</DropdownItem>
 				</DropdownMenu>
 			  </Dropdown>
-			  
-		  <Dropdown >
-			<DropdownToggle nav caret> Gráficas </DropdownToggle>
-			<DropdownMenu end>
-			  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
-			  <DropdownItem divider/>
-			  <DropdownItem href="./#/cancerdeaths-graph-C3">Cancerdeaths-Stats-C3</DropdownItem>
-			  <DropdownItem divider/>
-			  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
-			  <DropdownItem divider/>
-			  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
-			  <DropdownItem divider/>
-            	<DropdownItem href="./#/graph">Gráfica común</DropdownItem>
-			</DropdownMenu>
-		  </Dropdown>
-		  <!--<NavItem>
-			<NavLink style="float:right; margin:left;" href="#/about">Acerca de</NavLink>
-		  </NavItem>-->
 		</Nav>
 	</Navbar>
 	<!---->

@@ -13,6 +13,11 @@
 	import EditCancerdeaths from "./cancerdeaths-stats/EditCancerdeaths.svelte";
 	import MyGraphCancerdeaths from "./cancerdeaths-stats/MyGraphCancerdeaths.svelte";
 	import MyGraphCancerdeathsC3 from "./cancerdeaths-stats/MyGraphCancerdeathsC3.svelte";
+	import GraphAPISOS1 from "./cancerdeaths-stats/GraphAPISOS1.svelte";
+	import GraphAPISOS2 from "./cancerdeaths-stats/GraphAPISOS2.svelte";
+	import GraphAPIEXT1 from "./cancerdeaths-stats/GraphAPIEXT1.svelte";
+	import GraphAPIEXT2 from "./cancerdeaths-stats/GraphAPIEXT2.svelte";
+	import GraphAPIEXT3 from "./cancerdeaths-stats/GraphAPIEXT3.svelte";
 	import Airpollution from './air-pollution-stats/AirPollution.svelte';
 	import EditAirpollution from "./air-pollution-stats/EditAirPollution.svelte";
 
@@ -42,6 +47,11 @@ import IntegracionExt2 from './air-pollution-stats/IntegracionExt2.svelte';
 		"/cancerdeaths/:country/:year" : EditCancerdeaths,
 		"/cancerdeaths-graph": MyGraphCancerdeaths,
 		"/cancerdeaths-graph-C3": MyGraphCancerdeathsC3,
+		"/cancerdeaths-graph-SOS1": GraphAPISOS1,
+		"/cancerdeaths-graph-SOS2": GraphAPISOS2,
+		"/cancerdeaths-graph-EXT1": GraphAPIEXT1,
+		"/cancerdeaths-graph-EXT2": GraphAPIEXT2,
+		"/cancerdeaths-graph-EXT3": GraphAPIEXT3,
 		"/air-pollution-stats" : Airpollution,
 		"/air-pollution/:country/:year" : EditAirpollution,
 		"/graphAirPollution" : AirPollutionGraph,
