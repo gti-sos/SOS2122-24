@@ -112,7 +112,7 @@
     async function loadGraph() {
         var ctx = document.getElementById("myChart").getContext("2d");
         var trace_consumption = new Chart(ctx, {
-            type: "bar",
+            type: "radar",
             data: {
                 labels: country,
                 
@@ -122,30 +122,35 @@
                         borderColor: "rgba(255, 99, 132, 0.2)",
                         backgroundColor: "rgba(255, 99, 132, 1)",
                         data: ages_fifty_seventy,
+                        fill: false
                     },
                     {
                         label: "ages_seventy",
                         backgroundColor: "#bc98f3",
                         borderColor: "#bc98f3",
                         data: ages_seventy,
+                        fill: false
                     },
                     {
                         label: "ages_zero_fifty",
                         backgroundColor: "#bdecb6",
                         borderColor: "#bdecb6",
                         data: ages_zero_fifty,
+                        fill: false
                     },
                     {
                         label: "Price",
                         backgroundColor: "#0049FF",
                         borderColor: "#0049FF",
                         data: precio,
+                        fill: false
                     },
                     {
                         label: "Users",
                         backgroundColor: "#FF9E00",
                         borderColor: "#FF9E00",
                         data: usuarios,
+                        fill: false
                     },
                     
                 ],
