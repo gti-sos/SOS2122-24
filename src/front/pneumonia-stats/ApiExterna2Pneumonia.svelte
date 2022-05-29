@@ -4,34 +4,37 @@
 
     //const delay=ms=>new Promise(res=>setTimeout(res,ms));
     let pneumonias=[];
-    let agriculturals=[];
+    let datos=[];
     let country=[];
     let year=[];
     let ages_zero_fifty=["menos de 50 años"];
     let ages_fifty_seventy=["de 50 a 70 años"];
     let ages_seventy=["mayores de 70 años"];
-    let production=["produccion"];
-    let absolute_change=["cambio absoluto"];
-    let relative_change=["cambio relativo"]
+    let id=["id"];
+
+    
 
     async function getData(){
-      const datosAgricultural = await fetch("/remoteAPIAGRICULTURAL/loadInitialData");
-      const datosPneumonia= await fetch("/api/v1/pneumonia-stats/loadInitialData");
+        const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Host': 'twinesocial.p.rapidapi.com',
+		'X-RapidAPI-Key': 'c39120aa81msh087d47ca1543c02p1d12abjsnfb5f66461395'
+	}
+};
         console.log("Fetching pneumonia y agricultural....");
-        const res1 = await fetch("/remoteAPIAGRICULTURAL");
+        const datosPneumonia= await fetch("/api/v1/pneumonia-stats/loadInitialData");
+        const res1 = await fetch('https://twinesocial.p.rapidapi.com/v1/content?campaign=louboutin', options);
         const res2= await fetch("/api/v1/pneumonia-stats");
         if(res1.ok && res2.ok){
             const data1 = await res1.json();
-            const data2 = await res2.json();          
-            agriculturals = data1;
-            console.log("Recibido: " +agriculturals.length);
-            agriculturals.forEach(agricultural => {
-                //year.push(agricultural.year);
-                country.push(agricultural.country+"-"+agricultural.year);
-                production.push(agricultural.production);
-                absolute_change.push(agricultural.absolute_change);
-                relative_change.push(agricultural.relative_change);
-                console.log(country);
+            const data2 = await res2.json(); 
+            console.log(data1);         
+            datos = data1.rows;
+            console.log("Recibido: " +datos.length);
+            datos.forEach(dato => {
+                country.push(dato.country);
+                id.push(dato.id);
                 ages_zero_fifty.push("-");
                 ages_fifty_seventy.push("-");
                 ages_seventy.push("-");          
@@ -44,9 +47,7 @@
                 ages_zero_fifty.push(pneumonia.ages_zero_fifty);
                 ages_fifty_seventy.push(pneumonia.ages_fifty_seventy);
                 ages_seventy.push(pneumonia.ages_seventy);
-                production.push("-");
-                absolute_change.push("-");
-                relative_change.push("-");
+                id.push("-");
             });   
             
         }else{
@@ -63,22 +64,18 @@
             ["data1", 30],
 	        ["data2", 120]
           ],
-          type: "area", // for ESM specify as: pie()
-         
-         // onclick: function(d, i) {
-         // console.log("onclick", d, i);
-         //},
-         // onover: function(d, i) {
-          //console.log("onover", d, i);
-         //},
-         // onout: function(d, i) {
-          //console.log("onout", d, i);
-         //}
+          type: "spline", 
         },
         axis: {
             x: {
                 type: "category",
-                categories: country
+                categories: country,
+                tick: {
+                  rotate: -65,
+        multiline: false,
+        tooltip: true
+      },
+      height: 130
             },
         },
         bindto: "#pieChart"
@@ -87,12 +84,10 @@
       setTimeout(function() {
           chart.load({
               columns: [
-                  absolute_change,
-                  relative_change,
-                  production,
                   ages_zero_fifty,
                   ages_fifty_seventy,
-                  ages_seventy
+                  ages_seventy,
+                 id
               ]
           });
       }, 1500);

@@ -220,6 +220,14 @@
 				  <DropdownItem divider/>
 				  <DropdownItem href="./#/graphbillboard">Pneumonia-Stats-Billboard</DropdownItem>
 				  <DropdownItem divider/>
+				  <DropdownItem href="./#/graphpopulationlevels">Pneumonia-Stats-PopulationLevels</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./#/graphagricultural">Pneumonia-Stats-Agricultural</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./#/graphexterna1-pneumonia">Pneumonia-Stats-Api Externa 1</DropdownItem>
+				  <DropdownItem divider/>
+				  <DropdownItem href="./#/graphexterna2-pneumonia">Pneumonia-Stats-Api Externa 2</DropdownItem>
+				  <DropdownItem divider/>
 				  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
 				  <DropdownItem divider/>
 				  <DropdownItem href="./#/graph">Grafica comun</DropdownItem>

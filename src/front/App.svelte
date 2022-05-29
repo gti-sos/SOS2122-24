@@ -9,10 +9,15 @@
 	import ApiPopulationLevels from './pneumonia-stats/ApiPopulationLevels.svelte';
 	import AgriculturalProductions from './pneumonia-stats/AgriculturalProductions.svelte';
 	import Billboard from './pneumonia-stats/Billboard.svelte';
+	import ApiExterna1Pneumonia from './pneumonia-stats/ApiExterna1Pneumonia.svelte';
+	import ApiExterna2Pneumonia from './pneumonia-stats/ApiExterna2Pneumonia.svelte';
+	import ApiExterna3Pneumonia from './pneumonia-stats/ApiExterna3Pneumonia.svelte';
+
 	import Cancerdeaths from './cancerdeaths-stats/Cancerdeaths.svelte';
 	import EditCancerdeaths from "./cancerdeaths-stats/EditCancerdeaths.svelte";
 	import MyGraphCancerdeaths from "./cancerdeaths-stats/MyGraphCancerdeaths.svelte";
 	import MyGraphCancerdeathsC3 from "./cancerdeaths-stats/MyGraphCancerdeathsC3.svelte";
+
 	import Airpollution from './air-pollution-stats/AirPollution.svelte';
 	import EditAirpollution from "./air-pollution-stats/EditAirPollution.svelte";
 
@@ -31,6 +36,9 @@ import MyGraph from './MyGraph.svelte';
 		"/graphpopulationlevels": ApiPopulationLevels,
 		"/graphagricultural":AgriculturalProductions,
 		"/graphbillboard" : Billboard,
+		"/graphexterna1-pneumonia": ApiExterna1Pneumonia,
+		"/graphexterna2-pneumonia": ApiExterna2Pneumonia,
+		"/graphexterna3-pneumonia": ApiExterna3Pneumonia,
 		"/cancerdeaths-stats" : Cancerdeaths,
 		"/cancerdeaths/:country/:year" : EditCancerdeaths,
 		"/cancerdeaths-graph": MyGraphCancerdeaths,
