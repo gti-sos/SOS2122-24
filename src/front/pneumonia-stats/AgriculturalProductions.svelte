@@ -122,39 +122,35 @@
 		<NavbarBrand href="#/info">INICIO</NavbarBrand>
 		<Nav navbar>
 			<Dropdown >
-				<DropdownToggle nav caret> API </DropdownToggle>
-				<DropdownMenu end>
-				  <DropdownItem href="./api/v1/cancerdeaths-stats">Cancerdeaths-Stats</DropdownItem>
-				  <DropdownItem divider/>
-				  <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats</DropdownItem>
-				  <DropdownItem divider/>
-				  <DropdownItem href="./api/v1/air-pollution-stats">Airpollution-Stats</DropdownItem>
-				</DropdownMenu>
-            </Dropdown>
-              
-            <Dropdown>
-				<DropdownToggle nav caret> FRONT-END </DropdownToggle>
-				<DropdownMenu end>
-				  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
-                  <DropdownItem divider/>
-				  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
-                  <DropdownItem divider/>
-				  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
-				</DropdownMenu>
-			  </Dropdown>
-			  
-			  <Dropdown >
-				<DropdownToggle nav caret> Gráficas </DropdownToggle>
-				<DropdownMenu end>
-				  <DropdownItem href="./#/cancerdeaths-graph">Cancerdeaths-Stats</DropdownItem>
-                  <DropdownItem divider/>
-				  <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
-                  <DropdownItem divider/>
-				  <DropdownItem href="#/graphAirPollution">AirPollution-Stats</DropdownItem>
-                  <DropdownItem divider/>
-                  <DropdownItem href="./#/graph">Grafica comun</DropdownItem>
-				</DropdownMenu>
-			  </Dropdown>
+        <DropdownToggle nav caret> Laura </DropdownToggle>
+        <DropdownMenu end>
+          <DropdownItem ><h7>FRONT-END</h7></DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
+          <DropdownItem divider style="border-color:black;"/>
+          <DropdownItem ><h7>API</h7></DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats-API</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./api/v2/pneumonia-stats">Pneumonia-Stats-V2-API</DropdownItem>
+          <DropdownItem divider style="border-color:black;"/>
+          <DropdownItem ><h7>Graficas</h7></DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphbillboard">Pneumonia-Stats-Billboard</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphpopulationlevels">Pneumonia-Stats-PopulationLevels</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphagricultural">Pneumonia-Stats-Agricultural</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphexterna1-pneumonia">Pneumonia-Stats-Externa1</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphexterna2-pneumonia">Pneumonia-Stats-Externa2</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphexterna3-pneumonia">Pneumonia-Stats-Externa3</DropdownItem>
+        </DropdownMenu>
+        </Dropdown>
 		</Nav>
 	</Navbar>
     <div id="pieChart"></div>

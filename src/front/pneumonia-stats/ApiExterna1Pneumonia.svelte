@@ -10,7 +10,7 @@
   let ages_fifty_seventy = ["de 50 a 70 años"];
   let ages_seventy = ["mayores de 70 años"];
   let id = ["id"];
-  let city=[];
+  let first_name=[];
 
   async function getData() {
     const options = {
@@ -34,9 +34,12 @@
       console.log("Recibido: " + datos.length);
 
       datos.forEach(dato =>{
-        //city.push(dato.city);
-        //country.push(city);
+        country.push(dato.first_name);
+        //country.push(dato.city);
         id.push(dato.id);
+        ages_zero_fifty.push("-");
+        ages_fifty_seventy.push("-");
+        ages_seventy.push("-");
       });
       
       pneumonias = data2;
@@ -47,7 +50,7 @@
         ages_zero_fifty.push(pneumonia.ages_zero_fifty);
         ages_fifty_seventy.push(pneumonia.ages_fifty_seventy);
         ages_seventy.push(pneumonia.ages_seventy);
-        id.push(0);
+        id.push("-");
       });
     } else {
       console.log("Error, can`t charge data");
@@ -65,11 +68,17 @@
         type: "bar", 
       },
       axis: {
-        x: {
-          type: "category",
-          categories: country
-        },
+            x: {
+                type: "category",
+                categories: country,
+                tick: {
+                  rotate: -65,
+        multiline: false,
+        tooltip: true
       },
+      height: 130
+            },
+        },
       bindto: "#pieChart",
     });
 
@@ -106,64 +115,41 @@
   <Navbar style="background-color: #6EAA8D; color:white;" light expand="lg">
     <NavbarBrand href="#/info">INICIO</NavbarBrand>
     <Nav navbar>
-      <Dropdown>
-        <DropdownToggle nav caret>API</DropdownToggle>
+      <Dropdown >
+        <DropdownToggle nav caret> Laura </DropdownToggle>
         <DropdownMenu end>
-          <DropdownItem href="./api/v1/cancerdeaths-stats"
-            >Cancerdeaths-Stats</DropdownItem
-          >
-          <DropdownItem divider />
-          <DropdownItem href="./api/v1/pneumonia-stats"
-            >Pneumonia-Stats</DropdownItem
-          >
-          <DropdownItem divider />
-          <DropdownItem href="./api/v1/air-pollution-stats"
-            >Airpollution-Stats</DropdownItem
-          >
-        </DropdownMenu>
-      </Dropdown>
-
-      <Dropdown>
-        <DropdownToggle nav caret>FRONT-END</DropdownToggle>
-        <DropdownMenu end>
-          <DropdownItem href="./#/Cancerdeaths-stats"
-            >Cancerdeaths FRONT-END</DropdownItem
-          >
-          <DropdownItem divider />
-          <DropdownItem href="./#/Pneumonia-stats"
-            >Pneumonia FRONT_END</DropdownItem
-          >
-          <DropdownItem divider />
-          <DropdownItem href="#/air-pollution-stats"
-            >AirPollution FRONT-END</DropdownItem
-          >
-        </DropdownMenu>
-      </Dropdown>
-
-      <Dropdown>
-        <DropdownToggle nav caret>Gráficas</DropdownToggle>
-        <DropdownMenu end>
-          <DropdownItem href="./#/cancerdeaths-graph"
-            >Cancerdeaths-Stats</DropdownItem
-          >
-          <DropdownItem divider />
+          <DropdownItem ><h7>FRONT-END</h7></DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
+          <DropdownItem divider style="border-color:black;"/>
+          <DropdownItem ><h7>API</h7></DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./api/v1/pneumonia-stats">Pneumonia-Stats-API</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./api/v2/pneumonia-stats">Pneumonia-Stats-V2-API</DropdownItem>
+          <DropdownItem divider style="border-color:black;"/>
+          <DropdownItem ><h7>Graficas</h7></DropdownItem>
+          <DropdownItem divider/>
           <DropdownItem href="./#/graphpneumonia">Pneumonia-Stats</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem href="#/graphAirPollution"
-            >AirPollution-Stats</DropdownItem
-          >
-          <DropdownItem divider />
-          <DropdownItem href="./#/graph">Grafica comun</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphbillboard">Pneumonia-Stats-Billboard</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphpopulationlevels">Pneumonia-Stats-PopulationLevels</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphagricultural">Pneumonia-Stats-Agricultural</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphexterna1-pneumonia">Pneumonia-Stats-Externa1</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphexterna2-pneumonia">Pneumonia-Stats-Externa2</DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem href="./#/graphexterna3-pneumonia">Pneumonia-Stats-Externa3</DropdownItem>
         </DropdownMenu>
-      </Dropdown>
+        </Dropdown>
     </Nav>
   </Navbar>
   <br />
   <div id="pieChart" />
   <br />
   <br />
-  <p>
-    Este grafico compara las muertes por neumonia en distintos rangos de edades
-    y el estudio de la poblacion en la actualidad
-  </p>
+  
 </main>

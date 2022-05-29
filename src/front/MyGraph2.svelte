@@ -64,12 +64,27 @@
     async function loadGraph(){
 
         Highcharts.chart("container", {
+            chart: {
+                type: 'scatter',
+        margin: [70, 50, 60, 80],
+        events: {
+            click: function (e) {
+                // find the clicked values and the series
+                var x = Math.round(e.xAxis[0].value),
+                    y = Math.round(e.yAxis[0].value),
+                    series = this.series[0];
+
+                // Add it
+                series.addPoint([x, y]);}}
+    },
         title: {
             text: "Muertes por cancer, neumonia y contaminacion de aire en interiores",
+            align: 'left'
         },
 
         subtitle: {
             text: "Source: thesolarfoundation.com",
+            align: 'left'
         },
 
         yAxis: {
@@ -82,13 +97,22 @@
         xAxis: {
             title: {
                 text: "Pais-año",
-            },categories: country,
+            }
+            ,categories: country,
         },
-
+        tooltip: {
+        shared: true
+    },
         legend: {
-            layout: "vertical",
-            align: "right",
-            verticalAlign: "middle",
+            layout: 'vertical',
+        align: 'left',
+        x: 80,
+        verticalAlign: 'top',
+        y: 55,
+        floating: true,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || // theme
+            'rgba(255,255,255,0.25)'
         },
 
         
@@ -130,16 +154,19 @@
 </script>
 <svelte:head>
 
-
+    
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
+
+
+
 </svelte:head>
 
 <main>
+
     <Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
 		<NavbarBrand href="#/info">INICIO</NavbarBrand>
 		<Nav navbar>
@@ -185,7 +212,6 @@
 			  <Dropdown >
 				<DropdownToggle nav caret> Gráficas </DropdownToggle>
 				<DropdownMenu end>
-					
 					  <DropdownItem href="./#/graph">Gráfica común</DropdownItem><DropdownItem divider/>
 					  <DropdownItem href="./#/analytics"> 2º Gráfica común</DropdownItem>
 				</DropdownMenu>
@@ -196,11 +222,14 @@
 		</Nav>
 	</Navbar>
 
+    
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
            
         </p>
     </figure>
+    
+    
 
 </main>

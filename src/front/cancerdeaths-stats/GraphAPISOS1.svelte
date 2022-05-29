@@ -1,6 +1,5 @@
 <script>
     import * as c3 from "c3";
-
     import { onMount } from 'svelte';
     import {Navbar, Nav, NavItem, NavLink, NavbarBrand, Dropdown, DropdownToggle, DropdownMenu, DropdownItem,Button} from 'sveltestrap';
     const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -11,12 +10,21 @@
     let ages_fifty_seventy = ["ages_fifty_seventy"];
     let ages_seventy = ["ages_seventy"];
     let datos = []; 
-    let datosOrdenados = [];   
+    let datosOrdenados = []; 
+    var x = [];
     //creo 2 let datos para poder ordenado los datos por año
+
+    let grazing_area2 = ["grazing_area"];
+    let built_area2 = ["built_area"];
+    let cropland_area2 = ["cropland_area"]; 
+    let datos2 = []; 
+    let datosOrdenados2 = []; 
 
     async function getData(){
         console.log("Fetching cancerdeaths....");
         const res = await fetch("/api/v1/cancerdeaths-stats");
+        console.log("Fetching stats....");
+        const res2 = await fetch("/remoteAPISOS1");
         if(res.ok){
             const data = await res.json();          
             datos = data;
@@ -30,13 +38,16 @@
             });
             console.log("Ordenadas correctamente");
             datosOrdenados.forEach(dato => {
-                year.push(dato.year);
                 country.push(dato.country+"-"+dato.year);
                 ages_zero_fifty.push(dato.ages_zero_fifty);
                 ages_fifty_seventy.push(dato.ages_fifty_seventy);
-                ages_seventy.push(dato.ages_seventy);          
+                ages_seventy.push(dato.ages_seventy);
+                grazing_area2.push(0);
+                    built_area2.push(0);
+                    cropland_area2.push(0); 
+                          
             });
-            location.reload();
+            
             }
             else{
                console.log("Entradas recibidas: "+datos.length);
@@ -46,12 +57,77 @@
             });
             console.log("Ordenadas correctamente");
             datosOrdenados.forEach(dato => {
-                year.push(dato.year);
                 country.push(dato.country+"-"+dato.year);
                 ages_zero_fifty.push(dato.ages_zero_fifty);
                 ages_fifty_seventy.push(dato.ages_fifty_seventy);
-                ages_seventy.push(dato.ages_seventy);            
+                ages_seventy.push(dato.ages_seventy); 
+                grazing_area2.push(0);
+                    built_area2.push(0);
+                    cropland_area2.push(0); 
+                   
+                        
             }); 
+            }
+            
+        }else{
+            console.log("Error, can`t charge data");
+		}
+        // api externa
+        if(res2.ok){
+            const data2 = await res2.json();          
+            datos2 = data2;
+            //si no tenemos ningun dato cargado, cargamos los datos iniciales, si tiene datos los obtiene sin cargar los iniciales
+            if (datos2.length == 0) {
+                const res2 = await fetch("/remoteAPISOS1/loadInitialData");
+                console.log("Entradas recibidas: "+datos.length);
+            //con la siguiente funcion ordeno los datos por años de menor a mayor
+            datosOrdenados2 = datos2.sort(function (a, b){
+            return (a.year - b.year)
+            });
+            console.log("Ordenadas correctamente");
+            datosOrdenados2.forEach(stat => {
+                if (country.includes(stat.country+"-"+stat.year)){
+                  x = country.indexOf(stat.country+"-"+stat.year);
+                  grazing_area2.splice(x+1,1,stat.grazing_area)
+                  built_area2.splice(x+1,1,stat.built_area);
+                  cropland_area2.splice(x+1,1,stat.cropland_area);
+
+                }else{
+                  country.push(stat.country+"-"+stat.year); 
+                  grazing_area2.push(stat.grazing_area);
+                    built_area2.push(stat.built_area);
+                    cropland_area2.push(stat.cropland_area); 
+                    ages_fifty_seventy.push(0);
+                    ages_seventy.push(0);
+                    ages_zero_fifty.push(0);
+                };        
+            });
+            
+            }
+            else{
+               console.log("Entradas recibidas: "+datos2.length);
+            //con la siguiente funcion ordeno los datos por años de menor a mayor
+            datosOrdenados2 = datos2.sort(function (a, b){
+            return (a.year - b.year)
+            });
+            console.log("Ordenadas correctamente");
+            datosOrdenados2.forEach(stat => {
+                //country.push(stat.country+"-"+stat.year); 
+                if (country.includes(stat.country+"-"+stat.year)){
+                  x = country.indexOf(stat.country+"-"+stat.year);
+                  grazing_area2.splice(x+1,1,stat.grazing_area)
+                  built_area2.splice(x+1,1,stat.built_area);
+                  cropland_area2.splice(x+1,1,stat.cropland_area);
+                }else{
+                  country.push(stat.country+"-"+stat.year); 
+                  grazing_area2.push(stat.grazing_area);
+                    built_area2.push(stat.built_area);
+                    cropland_area2.push(stat.cropland_area); 
+                    ages_fifty_seventy.push(0);
+                    ages_seventy.push(0);
+                    ages_zero_fifty.push(0);
+                };                      
+            });
             }
             
         }else{
@@ -62,20 +138,18 @@
 
     async function loadGraph(){
         var chart = c3.generate({
-            title: {
-                text: 'Grafica de muertes producidad por cancer - Source: https://ourworldindata.org/cancer#deaths-from-cancer',
-                
-            },
-            
             
     data: {
         
         columns: [
             ages_zero_fifty,
             ages_fifty_seventy,
-            ages_seventy
+            ages_seventy,
+            grazing_area2,
+            built_area2,
+            cropland_area2
         ],
-        type: 'bar'
+        type: 'area'
     },
     bar: {
         width: {
@@ -147,6 +221,6 @@
 	</Navbar>
 	<!---->
     <br>
-    
+    <p style="text-align:center ;">Grafica de muertes producidad por cancer e integración SOS-1 - Source: https://ourworldindata.org/cancer#deaths-from-cancer</p>
     <div id="chart"></div>
 </main>
