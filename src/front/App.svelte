@@ -25,6 +25,11 @@
 import AirPollutionGraph from './air-pollution-stats/AirPollutionGraph.svelte';
 import MyGraph from './MyGraph.svelte';
 import AirPollutionApexcharts from './air-pollution-stats/AirPollutionApexcharts.svelte';
+import MyGraph2 from './MyGraph2.svelte';
+import Integracion1 from './air-pollution-stats/Integracion1.svelte';
+import Integracion2 from './air-pollution-stats/Integracion2.svelte';
+import IntegracionExt1 from './air-pollution-stats/IntegracionExt1.svelte';
+import IntegracionExt2 from './air-pollution-stats/IntegracionExt2.svelte';
 
 	//export let name;
 
@@ -51,7 +56,12 @@ import AirPollutionApexcharts from './air-pollution-stats/AirPollutionApexcharts
 		"/air-pollution/:country/:year" : EditAirpollution,
 		"/graphAirPollution" : AirPollutionGraph,
 		"/airpollution-apexcharts": AirPollutionApexcharts,
-		"/graph": MyGraph
+		"/aleali": Integracion1,
+		"/felipe": Integracion2,
+		"/ext1": IntegracionExt1,
+		"/ext2": IntegracionExt2,
+		"/graph": MyGraph,
+		"/graph2": MyGraph2
 
 
 	};
