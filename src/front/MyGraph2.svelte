@@ -82,10 +82,7 @@
             align: 'left'
         },
 
-        subtitle: {
-            text: "Source: thesolarfoundation.com",
-            align: 'left'
-        },
+        
 
         yAxis: {
             title: {

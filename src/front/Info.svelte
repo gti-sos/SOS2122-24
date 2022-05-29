@@ -102,8 +102,6 @@
 			  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
 			  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
 			  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
-			  <DropdownItem divider/>
-			  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
 		  
