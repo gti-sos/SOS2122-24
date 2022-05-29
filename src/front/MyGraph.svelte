@@ -187,7 +187,7 @@
 				<DropdownMenu end>
 					
 					  <DropdownItem href="./#/graph">Gráfica común</DropdownItem><DropdownItem divider/>
-					  <DropdownItem href="./#/graph2"> 2º Gráfica común</DropdownItem>
+					  <DropdownItem href="./#/analytics"> 2º Gráfica común</DropdownItem>
 				</DropdownMenu>
 			  </Dropdown>
 		  <!--<NavItem>
