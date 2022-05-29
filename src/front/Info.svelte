@@ -4,7 +4,7 @@
 
 
 <body><Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
-	<NavbarBrand href="#/info">INICIO</NavbarBrand>
+	<NavbarBrand href="#/integrations">IR A INTEGRACIONES</NavbarBrand>
 	<Nav navbar>
 
 		<Dropdown >
@@ -35,8 +35,6 @@
 			  <DropdownItem href="./#/cancerdeaths-graph-EXT2">Cancerdeaths-Stats-EXT2</DropdownItem>
 			  <DropdownItem divider/>
 			  <DropdownItem href="./#/cancerdeaths-graph-EXT3">Cancerdeaths-Stats-EXT3</DropdownItem>
-			  <DropdownItem divider/>
-			  <DropdownItem href="./#/graph">Gráfica común</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
 
