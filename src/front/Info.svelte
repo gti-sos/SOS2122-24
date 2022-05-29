@@ -4,6 +4,7 @@
 
 
 <body><Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
+	
 	<NavbarBrand href="#/integrations">GO TO INTEGRATIONS</NavbarBrand>
 	<Nav navbar>
 

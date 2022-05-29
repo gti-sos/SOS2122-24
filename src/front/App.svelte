@@ -3,6 +3,7 @@
 	import Home from './Home.svelte';
 	import Info from './Info.svelte';
 	import Integraciones from './integraciones.svelte';
+	import About from './about.svelte';
 
 	import Pneumonia from './pneumonia-stats/Pneumonia.svelte';
 	import EditPneumonia from "./pneumonia-stats/EditPneumonia.svelte";
@@ -42,6 +43,7 @@ import IntegracionExt2 from './air-pollution-stats/IntegracionExt2.svelte';
 		'/' : Home,
 		"/info" : Info,
 		"/integrations" : Integraciones,
+		"/about": About,
 
 		"/pneumonia-stats" : Pneumonia,
 		"/pneumonia/:country/:year" : EditPneumonia,

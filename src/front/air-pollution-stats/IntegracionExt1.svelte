@@ -31,7 +31,7 @@
                    console.log("Estadísticas recibidas: "+stats1.length);
                    //inicializamos los arrays para mostrar los datos
                    
-                 for(var i=0;i<8;i++){
+                 for(var i=0;i<=1;i++){
                    
                        country.push(stats1[i].country);
                        cas.push(stats1[i].cases);
