@@ -95,11 +95,11 @@
     <h1>INTEGRACIONES</h1>
 
     <h3>RAÚL GÓMEZ MORALES</h3>
-    <p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-SOS1 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
-	<p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-SOS2 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
-	<p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT1 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
-	<p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT2 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
-	<p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT3 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+    <p>- <a href="./#/cancerdeaths-graph-SOS1">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-SOS1 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+	<p>- <a href="./#/cancerdeaths-graph-SOS2">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-SOS2 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+	<p>- <a href="./#/cancerdeaths-graph-EXT1">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT1 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+	<p>- <a href="./#/cancerdeaths-graph-EXT2">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT2 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+	<p>- <a href="./#/cancerdeaths-graph-EXT3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT3 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
     <br>
 </main>
 <style>
