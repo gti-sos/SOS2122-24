@@ -4,8 +4,8 @@
 
 
 <body><Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
-	<NavbarBrand href="#/integrations">IR A INTEGRACIONES</NavbarBrand>
-	<NavbarBrand href="#/about">VIDEOS</NavbarBrand>
+	
+	<NavbarBrand href="#/integrations">GO TO INTEGRATIONS</NavbarBrand>
 	<Nav navbar>
 
 		<Dropdown >
@@ -103,8 +103,6 @@
 			  <DropdownItem href="./#/Cancerdeaths-stats">Cancerdeaths FRONT-END</DropdownItem>
 			  <DropdownItem href="./#/Pneumonia-stats">Pneumonia FRONT_END</DropdownItem>
 			  <DropdownItem href="#/air-pollution-stats">AirPollution FRONT-END</DropdownItem>
-			  <DropdownItem divider/>
-			  <DropdownItem href="#/analytics">Conjunto</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
 		  
@@ -158,11 +156,11 @@
     <h3>GÁFRICAS:</h3>
     <p>- <a href="./#/cancerdeaths-graph">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
 	<p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-C3 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
-	<p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-SOS1 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
-	<p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-SOS2 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
-	<p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT1 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
-	<p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT2 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
-	<p>- <a href="./#/cancerdeaths-graph-C3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT3 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+	<p>- <a href="./#/cancerdeaths-graph-SOS1">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-SOS1 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+	<p>- <a href="./#/cancerdeaths-graph-SOS2">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-SOS2 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+	<p>- <a href="./#/cancerdeaths-graph-EXT1">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT1 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+	<p>- <a href="./#/cancerdeaths-graph-EXT2">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT2 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
+	<p>- <a href="./#/cancerdeaths-graph-EXT3">https://sos2122-24.herokuapp.com/#/cancerdeaths-graph-EXT3 </a>(developed by <a href="https://github.com/Rgm13">Raúl Gómez Morales</a>)</p>
     <p>- <a href="./#/graphpneumonia">https://sos2122-24.herokuapp.com/#/graphpneumonia </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
 	<p>- <a href="./#/graphbillboard">https://sos2122-24.herokuapp.com/#/graphbillboard </a>(developed by <a href="https://github.com/Lauramartinezsanchez">Laura Martínez Sánchez</a>)</p>
     <p>- <a href="#/graphAirPollution">https://sos2122-24.herokuapp.com/#/air-pollution-stats </a>(developed by <a href="https://github.com/AliciaCamposCastello">Alicia Campos Castello</a>)</p>
