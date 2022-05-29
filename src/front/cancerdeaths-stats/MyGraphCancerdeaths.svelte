@@ -164,8 +164,6 @@
 				  <DropdownItem href="./#/cancerdeaths-graph-EXT2">Cancerdeaths-Stats-EXT2</DropdownItem>
 				  <DropdownItem divider/>
 				  <DropdownItem href="./#/cancerdeaths-graph-EXT3">Cancerdeaths-Stats-EXT3</DropdownItem>
-				  <DropdownItem divider/>
-				  <DropdownItem href="./#/graph">Gráfica común</DropdownItem>
 				</DropdownMenu>
 			  </Dropdown>
 		</Nav>

@@ -2,6 +2,7 @@
 	import Router from 'svelte-spa-router';
 	import Home from './Home.svelte';
 	import Info from './Info.svelte';
+	import Integraciones from './integraciones.svelte';
 
 	import Pneumonia from './pneumonia-stats/Pneumonia.svelte';
 	import EditPneumonia from "./pneumonia-stats/EditPneumonia.svelte";
@@ -40,6 +41,7 @@ import IntegracionExt2 from './air-pollution-stats/IntegracionExt2.svelte';
 	const routes={
 		'/' : Home,
 		"/info" : Info,
+		"/integrations" : Integraciones,
 
 		"/pneumonia-stats" : Pneumonia,
 		"/pneumonia/:country/:year" : EditPneumonia,
