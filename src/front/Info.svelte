@@ -6,6 +6,8 @@
 <body><Navbar style="background-color: #6EAA8D; color:white;" light expand="lg" >
 	
 	<NavbarBrand href="#/integrations">GO TO INTEGRATIONS</NavbarBrand>
+	<NavbarBrand>|</NavbarBrand>
+	<NavbarBrand style="margin-right: 100%;" href="#/about">GO TO ABOUT</NavbarBrand>
 	<Nav navbar>
 
 		<Dropdown >
