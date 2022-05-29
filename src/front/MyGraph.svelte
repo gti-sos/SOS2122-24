@@ -68,9 +68,7 @@
             text: "Muertes por cancer, neumonia y contaminacion de aire en interiores",
         },
 
-        subtitle: {
-            text: "Source: thesolarfoundation.com",
-        },
+        
 
         yAxis: {
             title: {
